@@ -1,7 +1,9 @@
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, Integer, String, ForeignKey
-
+from sqlalchemy.orm import declarative_base
+from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship
+#tutaj 2 czesc
+from sqlalchemy.orm import sessionmaker
+
 
 Base = declarative_base()
 
@@ -18,7 +20,7 @@ class Users(Base):
     profile_b64 = Column(String(), nullable=True)
     #time_created = Column(String(10), nullable=False)
 
-    apartments = relationship("Apartments", back_populates="users")
+    apartments = relationship("Apartments", back_populates="user")
 
 
 class Apartments(Base):
@@ -31,10 +33,10 @@ class Apartments(Base):
     user = relationship("Users", back_populates='apartments')
 
     # One-to-Many: One apartment can have many photos
-    photos = relationship("Photos", back_populates="apartments")
+    photos = relationship("Photos", back_populates="apartment")
 
     # One-to-Many: One apartment can have many residents
-    residents = relationship("Residents", back_populates="apartments")
+    residents = relationship("Residents", back_populates="apartment")
 
 
 class Photos(Base):
@@ -44,7 +46,7 @@ class Photos(Base):
     apartment_id = Column(Integer, ForeignKey("apartments.apartment_id"), nullable=False)
     photo_b64 = Column(String(),nullable=False)
 
-    apartments = relationship("Apartments", back_populates="photos")
+    apartment = relationship("Apartments", back_populates="photos")
 
 class Residents(Base):
     __tablename__ = "residents"
@@ -57,4 +59,59 @@ class Residents(Base):
     phone = Column(String(100), nullable=False)
     profile_b64 = Column(String(), nullable=True)
     
-    apartments = relationship("Apartments", back_populates="residents")
+    apartment = relationship("Apartments", back_populates="residents")
+
+engine = create_engine("sqlite:///db.db")
+Base.metadata.create_all(engine)
+
+
+#tutaj 2 czesc
+
+class UserData:
+    def __init__(self, username, firstname, surname, email, phone, password_hashed, profile_b64=None):
+        self.username = username
+        self.firstname = firstname
+        self.surname = surname
+        self.email = email
+        self.phone = phone
+        self.password_hashed = password_hashed
+        self.profile_b64 = profile_b64
+
+
+Session = sessionmaker(bind=engine)
+db_session = Session()
+
+user_data = UserData(
+    username="johndoe",
+    firstname="John",
+    surname="Doe",
+    email="johndoe@example.com",
+    phone="123456789",
+    password_hashed="hashedpassword123",
+    profile_b64=None  
+)
+
+new_user = Users(
+    username = user_data.username,
+    firstname = user_data.firstname,
+    surname = user_data.surname,
+    email = user_data.email,
+    phone = user_data.phone,
+    password_hashed = user_data.password_hashed,
+    profile_b64 = user_data.profile_b64
+)
+
+try:
+    db_session.add(new_user)
+    db_session.commit()
+    print("User created succesfully")
+except Exception as e:
+    db_session.rollback()
+    print(F"Error ocurred: {e}")
+finally:
+    db_session.close()
+
+
+
+
+

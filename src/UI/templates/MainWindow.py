@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QMainWindow,
-    QMenuBar, QPushButton, QSizePolicy, QStatusBar,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
+    QMainWindow, QMenuBar, QPushButton, QSizePolicy,
+    QStackedWidget, QStatusBar, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -49,6 +49,21 @@ class Ui_MainWindow(object):
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Shadow.Raised)
+        self.stackedWidget = QStackedWidget(self.frame_2)
+        self.stackedWidget.setObjectName(u"stackedWidget")
+        self.stackedWidget.setGeometry(QRect(140, 120, 361, 201))
+        self.page = QWidget()
+        self.page.setObjectName(u"page")
+        self.stackedWidget.addWidget(self.page)
+        self.page_2 = QWidget()
+        self.page_2.setObjectName(u"page_2")
+        self.stackedWidget.addWidget(self.page_2)
+        self.label = QLabel(self.frame_2)
+        self.label.setObjectName(u"label")
+        self.label.setGeometry(QRect(290, 390, 63, 20))
+        self.bt_mieszkania_2 = QPushButton(self.frame_2)
+        self.bt_mieszkania_2.setObjectName(u"bt_mieszkania_2")
+        self.bt_mieszkania_2.setGeometry(QRect(130, 370, 93, 29))
 
         self.horizontalLayout.addWidget(self.frame_2)
 
@@ -63,6 +78,9 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
+        self.stackedWidget.setCurrentIndex(1)
+
+
         QMetaObject.connectSlotsByName(MainWindow)
     # setupUi
 
@@ -71,5 +89,7 @@ class Ui_MainWindow(object):
         self.bt_mieszkania.setText(QCoreApplication.translate("MainWindow", u"mieszkania", None))
         self.bt_konto.setText(QCoreApplication.translate("MainWindow", u"konto", None))
         self.bt_wyloguj.setText(QCoreApplication.translate("MainWindow", u"wyloguj si\u0119", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"xcbshsh", None))
+        self.bt_mieszkania_2.setText(QCoreApplication.translate("MainWindow", u"mieszkania", None))
     # retranslateUi
 
