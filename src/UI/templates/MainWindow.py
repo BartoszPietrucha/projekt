@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QMainWindow, QMenuBar, QPushButton, QSizePolicy,
-    QStackedWidget, QStatusBar, QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QMainWindow,
+    QMenuBar, QPushButton, QSizePolicy, QStackedWidget,
+    QStatusBar, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -30,6 +30,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName(u"horizontalLayout")
         self.frame_3 = QFrame(self.centralwidget)
         self.frame_3.setObjectName(u"frame_3")
+        self.frame_3.setMinimumSize(QSize(150, 0))
         self.frame_3.setMaximumSize(QSize(150, 16777215))
         self.frame_3.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_3.setFrameShadow(QFrame.Shadow.Raised)
@@ -49,21 +50,29 @@ class Ui_MainWindow(object):
         self.frame_2.setObjectName(u"frame_2")
         self.frame_2.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_2 = QHBoxLayout(self.frame_2)
+        self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.stackedWidget = QStackedWidget(self.frame_2)
         self.stackedWidget.setObjectName(u"stackedWidget")
-        self.stackedWidget.setGeometry(QRect(140, 120, 361, 201))
+        self.stackedWidget.setStyleSheet(u"background-color: #92a8d1;")
         self.page = QWidget()
         self.page.setObjectName(u"page")
+        self.bt_mieszkania_3 = QPushButton(self.page)
+        self.bt_mieszkania_3.setObjectName(u"bt_mieszkania_3")
+        self.bt_mieszkania_3.setGeometry(QRect(300, 120, 93, 29))
         self.stackedWidget.addWidget(self.page)
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
-        self.stackedWidget.addWidget(self.page_2)
-        self.label = QLabel(self.frame_2)
-        self.label.setObjectName(u"label")
-        self.label.setGeometry(QRect(290, 390, 63, 20))
-        self.bt_mieszkania_2 = QPushButton(self.frame_2)
+        self.bt_mieszkania_2 = QPushButton(self.page_2)
         self.bt_mieszkania_2.setObjectName(u"bt_mieszkania_2")
-        self.bt_mieszkania_2.setGeometry(QRect(130, 370, 93, 29))
+        self.bt_mieszkania_2.setGeometry(QRect(280, 100, 93, 29))
+        self.stackedWidget.addWidget(self.page_2)
+        self.page_3 = QWidget()
+        self.page_3.setObjectName(u"page_3")
+        self.stackedWidget.addWidget(self.page_3)
+
+        self.horizontalLayout_2.addWidget(self.stackedWidget)
+
 
         self.horizontalLayout.addWidget(self.frame_2)
 
@@ -78,7 +87,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -89,7 +98,7 @@ class Ui_MainWindow(object):
         self.bt_mieszkania.setText(QCoreApplication.translate("MainWindow", u"mieszkania", None))
         self.bt_konto.setText(QCoreApplication.translate("MainWindow", u"konto", None))
         self.bt_wyloguj.setText(QCoreApplication.translate("MainWindow", u"wyloguj si\u0119", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"xcbshsh", None))
+        self.bt_mieszkania_3.setText(QCoreApplication.translate("MainWindow", u"mieszkania", None))
         self.bt_mieszkania_2.setText(QCoreApplication.translate("MainWindow", u"mieszkania", None))
     # retranslateUi
 
