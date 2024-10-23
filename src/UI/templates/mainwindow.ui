@@ -94,36 +94,44 @@
           <number>2</number>
          </property>
          <widget class="QWidget" name="page">
-          <widget class="QPushButton" name="bt_mieszkania_3">
-           <property name="geometry">
-            <rect>
-             <x>300</x>
-             <y>120</y>
-             <width>93</width>
-             <height>29</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>mieszkania</string>
-           </property>
-          </widget>
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <widget class="QPushButton" name="bt_mieszkania_3">
+             <property name="text">
+              <string>mieszkania</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
          <widget class="QWidget" name="page_2">
-          <widget class="QPushButton" name="bt_mieszkania_2">
-           <property name="geometry">
-            <rect>
-             <x>280</x>
-             <y>100</y>
-             <width>93</width>
-             <height>29</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>mieszkania</string>
-           </property>
-          </widget>
+          <layout class="QHBoxLayout" name="horizontalLayout_5">
+           <item>
+            <widget class="QPushButton" name="bt_mieszkania_2">
+             <property name="text">
+              <string>mieszkania</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </widget>
-         <widget class="QWidget" name="page_3"/>
+         <widget class="QWidget" name="page_3">
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <item>
+            <widget class="QLabel" name="l_photos">
+             <property name="maximumSize">
+              <size>
+               <width>500</width>
+               <height>500</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>zdjecia</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
         </widget>
        </item>
       </layout>

@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QMainWindow,
-    QMenuBar, QPushButton, QSizePolicy, QStackedWidget,
-    QStatusBar, QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
+    QMainWindow, QMenuBar, QPushButton, QSizePolicy,
+    QStackedWidget, QStatusBar, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -57,18 +57,34 @@ class Ui_MainWindow(object):
         self.stackedWidget.setStyleSheet(u"background-color: #92a8d1;")
         self.page = QWidget()
         self.page.setObjectName(u"page")
+        self.horizontalLayout_4 = QHBoxLayout(self.page)
+        self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.bt_mieszkania_3 = QPushButton(self.page)
         self.bt_mieszkania_3.setObjectName(u"bt_mieszkania_3")
-        self.bt_mieszkania_3.setGeometry(QRect(300, 120, 93, 29))
+
+        self.horizontalLayout_4.addWidget(self.bt_mieszkania_3)
+
         self.stackedWidget.addWidget(self.page)
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
+        self.horizontalLayout_5 = QHBoxLayout(self.page_2)
+        self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.bt_mieszkania_2 = QPushButton(self.page_2)
         self.bt_mieszkania_2.setObjectName(u"bt_mieszkania_2")
-        self.bt_mieszkania_2.setGeometry(QRect(280, 100, 93, 29))
+
+        self.horizontalLayout_5.addWidget(self.bt_mieszkania_2)
+
         self.stackedWidget.addWidget(self.page_2)
         self.page_3 = QWidget()
         self.page_3.setObjectName(u"page_3")
+        self.horizontalLayout_3 = QHBoxLayout(self.page_3)
+        self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.l_photos = QLabel(self.page_3)
+        self.l_photos.setObjectName(u"l_photos")
+        self.l_photos.setMaximumSize(QSize(500, 500))
+
+        self.horizontalLayout_3.addWidget(self.l_photos)
+
         self.stackedWidget.addWidget(self.page_3)
 
         self.horizontalLayout_2.addWidget(self.stackedWidget)
@@ -100,5 +116,6 @@ class Ui_MainWindow(object):
         self.bt_wyloguj.setText(QCoreApplication.translate("MainWindow", u"wyloguj si\u0119", None))
         self.bt_mieszkania_3.setText(QCoreApplication.translate("MainWindow", u"mieszkania", None))
         self.bt_mieszkania_2.setText(QCoreApplication.translate("MainWindow", u"mieszkania", None))
+        self.l_photos.setText(QCoreApplication.translate("MainWindow", u"zdjecia", None))
     # retranslateUi
 
