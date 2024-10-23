@@ -79,11 +79,24 @@ class Ui_MainWindow(object):
         self.page_3.setObjectName(u"page_3")
         self.horizontalLayout_3 = QHBoxLayout(self.page_3)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
+        self.bt_left = QPushButton(self.page_3)
+        self.bt_left.setObjectName(u"bt_left")
+        self.bt_left.setMinimumSize(QSize(0, 450))
+        self.bt_left.setMaximumSize(QSize(25, 16777215))
+
+        self.horizontalLayout_3.addWidget(self.bt_left)
+
         self.l_photos = QLabel(self.page_3)
         self.l_photos.setObjectName(u"l_photos")
         self.l_photos.setMaximumSize(QSize(500, 500))
 
         self.horizontalLayout_3.addWidget(self.l_photos)
+
+        self.bt_right = QPushButton(self.page_3)
+        self.bt_right.setObjectName(u"bt_right")
+        self.bt_right.setMaximumSize(QSize(25, 450))
+
+        self.horizontalLayout_3.addWidget(self.bt_right)
 
         self.stackedWidget.addWidget(self.page_3)
 
@@ -116,6 +129,8 @@ class Ui_MainWindow(object):
         self.bt_wyloguj.setText(QCoreApplication.translate("MainWindow", u"wyloguj si\u0119", None))
         self.bt_mieszkania_3.setText(QCoreApplication.translate("MainWindow", u"mieszkania", None))
         self.bt_mieszkania_2.setText(QCoreApplication.translate("MainWindow", u"mieszkania", None))
-        self.l_photos.setText(QCoreApplication.translate("MainWindow", u"zdjecia", None))
+        self.bt_left.setText(QCoreApplication.translate("MainWindow", u"<", None))
+        self.l_photos.setText(QCoreApplication.translate("MainWindow", u"                                                        zdjecia", None))
+        self.bt_right.setText(QCoreApplication.translate("MainWindow", u">", None))
     # retranslateUi
 

@@ -37,6 +37,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.next_image)
         self.timer.start(5000)
+
+        self.bt_right.clicked.connect(self.next_image)
+        self.bt_left.clicked.connect(self.previous_image)
         
 
 
@@ -53,6 +56,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         next_image = self.images[self.current_image_index]
         self.show_image(next_image)
 
+    def previous_image(self):
+        self.current_image_index = (self.current_image_index-1) % len(self.images)
+        previous_image = self.images[self.current_image_index]
+        self.show_image(previous_image)
 
 if __name__ == "__main__":
     app = QApplication()
