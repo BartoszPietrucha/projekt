@@ -4,6 +4,25 @@ from src.UI.templates.MainWindow import Ui_MainWindow
 from PySide6.QtGui import QPixmap, QImage
 from PySide6.QtCore import QTimer
 import os
+from src.db.db_init.initialize_db import UserData, Session
+
+
+
+#trzeba sprawdzić login i hasło
+#dodawanie mieszkania
+#widget konta, update konta
+#dodawanie zdjęć
+#dodanie zdjec mieszkań na strone startową
+#hashowanie hasła
+#dodawanie residents
+#usuwanie mieszkania
+#update zdjec mieszkań 
+#usuwanie mieszkania,konta
+
+
+
+
+
 
 class LoginPage(QWidget, Ui_Form):
 
@@ -11,14 +30,49 @@ class LoginPage(QWidget, Ui_Form):
         super().__init__()
         self.setupUi(self)
         self.mainwindow = mainwindow
+        self.stackedWidget.setCurrentWidget(self.page_2)
         self.bt_login.clicked.connect(self.login)
-        self.bt_rejestr.setToolTip("jeśli chcesz zarejestrowa c to kliknij zaloguj")
-        
+        self.bt_rejestr.clicked.connect(self.rejestr)
+        self.bt_rejestr.setToolTip("juuuuuuhuuu")
+        self.bt_ok.clicked.connect(self.test)
 
     def login(self):
         self.hide()
         self.mainwindow.show()
         
+
+    def rejestr(self):
+        self.stackedWidget.setCurrentWidget(self.page)
+        
+        
+    def test(self):
+        if not all([self.le_username, self.le_firstname, self.le_surname, self.le_email, self.le_phone, self.le_password]):
+            print("Wszystkie pola muszą być wypełnione!")
+            return
+
+        new_user = UserData(
+            self.le_username,
+            self.le_firstname,
+            self.le_surname,
+            self.le_email,
+            self.le_phone,
+            self.le_password,
+            self.le_profile_b64
+        )
+        
+        db_session = Session()
+        try:
+            db_session.add(new_user)
+            db_session.commit()
+            print("Użytkownik został pomyślnie dodany do bazy danych.")
+        except Exception as e:
+            db_session.rollback()
+            print(f"Wystąpił błąd podczas dodawania użytkowania: {e}")
+        finally:
+            db_session.close()
+        self.hide()
+        self.mainwindow.show()
+
         
 
 class MainWindow(QMainWindow, Ui_MainWindow):
@@ -33,6 +87,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                        "C:/Programy/python/projekt/projekt/src/UI/apartment.jpg"]
         self.current_image_index = 0
         self.show_image(self.images[self.current_image_index])
+        self.stackedWidget.setCurrentWidget(self.page_3)
 
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.next_image)
@@ -41,7 +96,12 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.bt_right.clicked.connect(self.next_image)
         self.bt_left.clicked.connect(self.previous_image)
         
+        self.bt_mieszkania.clicked.connect(self.show_page2)
 
+
+    def reset_timer(self):
+        self.timer.stop()
+        self.timer.start(5000)
 
     def show_image(self,image_path):
         if os.path.exists(image_path):
@@ -55,11 +115,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.current_image_index = (self.current_image_index+1) % len(self.images)
         next_image = self.images[self.current_image_index]
         self.show_image(next_image)
+        self.reset_timer()
 
     def previous_image(self):
         self.current_image_index = (self.current_image_index-1) % len(self.images)
         previous_image = self.images[self.current_image_index]
         self.show_image(previous_image)
+        self.reset_timer()
+    
+    def show_page2(self):
+        self.stackedWidget.setCurrentWidget(self.page_2)
 
 if __name__ == "__main__":
     app = QApplication()

@@ -17,7 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
     QMainWindow, QMenuBar, QPushButton, QSizePolicy,
-    QStackedWidget, QStatusBar, QWidget)
+    QStackedWidget, QStatusBar, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -59,10 +59,49 @@ class Ui_MainWindow(object):
         self.page.setObjectName(u"page")
         self.horizontalLayout_4 = QHBoxLayout(self.page)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.bt_mieszkania_3 = QPushButton(self.page)
-        self.bt_mieszkania_3.setObjectName(u"bt_mieszkania_3")
+        self.frame_4 = QFrame(self.page)
+        self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_4.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout = QVBoxLayout(self.frame_4)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.label = QLabel(self.frame_4)
+        self.label.setObjectName(u"label")
 
-        self.horizontalLayout_4.addWidget(self.bt_mieszkania_3)
+        self.verticalLayout.addWidget(self.label)
+
+        self.label_5 = QLabel(self.frame_4)
+        self.label_5.setObjectName(u"label_5")
+
+        self.verticalLayout.addWidget(self.label_5)
+
+        self.label_6 = QLabel(self.frame_4)
+        self.label_6.setObjectName(u"label_6")
+
+        self.verticalLayout.addWidget(self.label_6)
+
+        self.label_4 = QLabel(self.frame_4)
+        self.label_4.setObjectName(u"label_4")
+
+        self.verticalLayout.addWidget(self.label_4)
+
+        self.label_2 = QLabel(self.frame_4)
+        self.label_2.setObjectName(u"label_2")
+
+        self.verticalLayout.addWidget(self.label_2)
+
+        self.label_7 = QLabel(self.frame_4)
+        self.label_7.setObjectName(u"label_7")
+
+        self.verticalLayout.addWidget(self.label_7)
+
+        self.label_3 = QLabel(self.frame_4)
+        self.label_3.setObjectName(u"label_3")
+
+        self.verticalLayout.addWidget(self.label_3)
+
+
+        self.horizontalLayout_4.addWidget(self.frame_4)
 
         self.stackedWidget.addWidget(self.page)
         self.page_2 = QWidget()
@@ -116,7 +155,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(2)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -127,7 +166,13 @@ class Ui_MainWindow(object):
         self.bt_mieszkania.setText(QCoreApplication.translate("MainWindow", u"mieszkania", None))
         self.bt_konto.setText(QCoreApplication.translate("MainWindow", u"konto", None))
         self.bt_wyloguj.setText(QCoreApplication.translate("MainWindow", u"wyloguj si\u0119", None))
-        self.bt_mieszkania_3.setText(QCoreApplication.translate("MainWindow", u"mieszkania", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"username", None))
+        self.label_5.setText(QCoreApplication.translate("MainWindow", u"firstname", None))
+        self.label_6.setText(QCoreApplication.translate("MainWindow", u"surname", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"email", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"phone", None))
+        self.label_7.setText(QCoreApplication.translate("MainWindow", u"password", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"profile_b64", None))
         self.bt_mieszkania_2.setText(QCoreApplication.translate("MainWindow", u"mieszkania", None))
         self.bt_left.setText(QCoreApplication.translate("MainWindow", u"<", None))
         self.l_photos.setText(QCoreApplication.translate("MainWindow", u"                                                        zdjecia", None))

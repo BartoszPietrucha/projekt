@@ -81,35 +81,6 @@ class UserData:
 Session = sessionmaker(bind=engine)
 db_session = Session()
 
-user_data = UserData(
-    username="johndoe",
-    firstname="John",
-    surname="Doe",
-    email="johndoe@example.com",
-    phone="123456789",
-    password_hashed="hashedpassword123",
-    profile_b64=None  
-)
-
-new_user = Users(
-    username = user_data.username,
-    firstname = user_data.firstname,
-    surname = user_data.surname,
-    email = user_data.email,
-    phone = user_data.phone,
-    password_hashed = user_data.password_hashed,
-    profile_b64 = user_data.profile_b64
-)
-
-try:
-    db_session.add(new_user)
-    db_session.commit()
-    print("User created succesfully")
-except Exception as e:
-    db_session.rollback()
-    print(F"Error ocurred: {e}")
-finally:
-    db_session.close()
 
 
 
