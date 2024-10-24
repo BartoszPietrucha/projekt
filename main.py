@@ -124,7 +124,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.reset_timer()
     
     def show_page2(self):
-        self.stackedWidget.setCurrentWidget(self.page_2)
+        
 
 if __name__ == "__main__":
     app = QApplication()
