@@ -4,7 +4,7 @@ from src.UI.templates.MainWindow import Ui_MainWindow
 from PySide6.QtGui import QPixmap, QImage
 from PySide6.QtCore import QTimer
 import os
-from src.db.db_init.initialize_db import UserData, Session
+from src.db.db_init.initialize_db import UserData, Session, Users
 
 
 
@@ -37,8 +37,26 @@ class LoginPage(QWidget, Ui_Form):
         self.bt_ok.clicked.connect(self.test)
 
     def login(self):
-        self.hide()
-        self.mainwindow.show()
+        username = self.le_login.text()
+        password = self.le_haslo.text()
+
+        db_session = Session()
+        try:
+            user = db_session.query(Users).filter_by(username=username).first()
+            if user:
+                if user.password_hashed == password:
+                    print("zalogowano pomyślnie")
+                    self.hide()
+                    self.mainwindow.show()
+                else:
+                    print("błędne hasło")
+            else:
+                print("Użytkownik nie istnieje")
+        except Exception as e:
+            print(f"wystapil blad podczas logowania: {e}")
+        finally:
+            db_session.close()
+        
         
 
     def rejestr(self):
@@ -50,15 +68,15 @@ class LoginPage(QWidget, Ui_Form):
             print("Wszystkie pola muszą być wypełnione!")
             return
 
-        new_user = UserData(
-            self.le_username,
-            self.le_firstname,
-            self.le_surname,
-            self.le_email,
-            self.le_phone,
-            self.le_password,
-            self.le_profile_b64
-        )
+        new_user = Users()
+        new_user.username = self.le_username.text()
+        new_user.firstname = self.le_firstname.text()
+        new_user.surname = self.le_surname.text()
+        new_user.email = self.le_email.text()
+        new_user.phone = self.le_phone.text()
+        new_user.password_hashed = self.le_password.text()
+        new_user.profile_b64 = self.le_profile_b64.text() if self.le_profile_b64.text() else None
+        
         
         db_session = Session()
         try:
