@@ -16,8 +16,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QMainWindow, QMenuBar, QPushButton, QSizePolicy,
-    QStackedWidget, QStatusBar, QVBoxLayout, QWidget)
+    QLineEdit, QMainWindow, QMenuBar, QPushButton,
+    QSizePolicy, QStackedWidget, QStatusBar, QVBoxLayout,
+    QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -102,6 +103,50 @@ class Ui_MainWindow(object):
 
 
         self.horizontalLayout_4.addWidget(self.frame_4)
+
+        self.frame = QFrame(self.page)
+        self.frame.setObjectName(u"frame")
+        self.frame.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_2 = QVBoxLayout(self.frame)
+        self.verticalLayout_2.setObjectName(u"verticalLayout_2")
+        self.le_kontouser = QLineEdit(self.frame)
+        self.le_kontouser.setObjectName(u"le_kontouser")
+
+        self.verticalLayout_2.addWidget(self.le_kontouser)
+
+        self.le_kontofirstname = QLineEdit(self.frame)
+        self.le_kontofirstname.setObjectName(u"le_kontofirstname")
+
+        self.verticalLayout_2.addWidget(self.le_kontofirstname)
+
+        self.le_kontosurname = QLineEdit(self.frame)
+        self.le_kontosurname.setObjectName(u"le_kontosurname")
+
+        self.verticalLayout_2.addWidget(self.le_kontosurname)
+
+        self.le_kontoemail = QLineEdit(self.frame)
+        self.le_kontoemail.setObjectName(u"le_kontoemail")
+
+        self.verticalLayout_2.addWidget(self.le_kontoemail)
+
+        self.le_kontophone = QLineEdit(self.frame)
+        self.le_kontophone.setObjectName(u"le_kontophone")
+
+        self.verticalLayout_2.addWidget(self.le_kontophone)
+
+        self.le_kontopassword = QLineEdit(self.frame)
+        self.le_kontopassword.setObjectName(u"le_kontopassword")
+
+        self.verticalLayout_2.addWidget(self.le_kontopassword)
+
+        self.le_kontoprofile_b64 = QLineEdit(self.frame)
+        self.le_kontoprofile_b64.setObjectName(u"le_kontoprofile_b64")
+
+        self.verticalLayout_2.addWidget(self.le_kontoprofile_b64)
+
+
+        self.horizontalLayout_4.addWidget(self.frame)
 
         self.stackedWidget.addWidget(self.page)
         self.page_2 = QWidget()

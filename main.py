@@ -8,7 +8,7 @@ from src.db.db_init.initialize_db import UserData, Session, Users
 
 
 
-#trzeba sprawdzić login i hasło
+
 #dodawanie mieszkania
 #widget konta, update konta
 #dodawanie zdjęć
@@ -116,6 +116,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         
         self.bt_mieszkania.clicked.connect(self.show_page2)
 
+        self.bt_konto.clicked.connect(self.show_page)
+
 
     def reset_timer(self):
         self.timer.stop()
@@ -143,6 +145,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     
     def show_page2(self):
         self.stackedWidget.setCurrentWidget(self.page_2)
+
+    def show_page(self):
+        self.stackedWidget.setCurrentWidget(self.page)
 
 if __name__ == "__main__":
     app = QApplication()

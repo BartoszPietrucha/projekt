@@ -156,6 +156,39 @@
              </layout>
             </widget>
            </item>
+           <item>
+            <widget class="QFrame" name="frame">
+             <property name="frameShape">
+              <enum>QFrame::Shape::StyledPanel</enum>
+             </property>
+             <property name="frameShadow">
+              <enum>QFrame::Shadow::Raised</enum>
+             </property>
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <item>
+               <widget class="QLineEdit" name="le_kontouser"/>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="le_kontofirstname"/>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="le_kontosurname"/>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="le_kontoemail"/>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="le_kontophone"/>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="le_kontopassword"/>
+              </item>
+              <item>
+               <widget class="QLineEdit" name="le_kontoprofile_b64"/>
+              </item>
+             </layout>
+            </widget>
+           </item>
           </layout>
          </widget>
          <widget class="QWidget" name="page_2">
