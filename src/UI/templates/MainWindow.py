@@ -148,6 +148,18 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_4.addWidget(self.frame)
 
+        self.frame_5 = QFrame(self.page)
+        self.frame_5.setObjectName(u"frame_5")
+        self.frame_5.setMinimumSize(QSize(100, 0))
+        self.frame_5.setMaximumSize(QSize(100, 16777215))
+        self.frame_5.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_5.setFrameShadow(QFrame.Shadow.Raised)
+        self.bt_edytuj = QPushButton(self.frame_5)
+        self.bt_edytuj.setObjectName(u"bt_edytuj")
+        self.bt_edytuj.setGeometry(QRect(10, 250, 93, 29))
+
+        self.horizontalLayout_4.addWidget(self.frame_5)
+
         self.stackedWidget.addWidget(self.page)
         self.page_2 = QWidget()
         self.page_2.setObjectName(u"page_2")
@@ -218,6 +230,7 @@ class Ui_MainWindow(object):
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"phone", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"password", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"profile_b64", None))
+        self.bt_edytuj.setText(QCoreApplication.translate("MainWindow", u"Edytuj", None))
         self.bt_mieszkania_2.setText(QCoreApplication.translate("MainWindow", u"mieszkania", None))
         self.bt_left.setText(QCoreApplication.translate("MainWindow", u"<", None))
         self.l_photos.setText(QCoreApplication.translate("MainWindow", u"                                                        zdjecia", None))

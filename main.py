@@ -10,7 +10,7 @@ from src.db.db_init.initialize_db import UserData, Session, Users
 
 
 #dodawanie mieszkania
-#widget konta, update konta
+
 #dodawanie zdjęć
 #dodanie zdjec mieszkań na strone startową
 #hashowanie hasła
@@ -21,83 +21,14 @@ from src.db.db_init.initialize_db import UserData, Session, Users
 
 
 
-
-
-
-class LoginPage(QWidget, Ui_Form):
-
-    def __init__(self, mainwindow):
-        super().__init__()
-        self.setupUi(self)
-        self.mainwindow = mainwindow
-        self.stackedWidget.setCurrentWidget(self.page_2)
-        self.bt_login.clicked.connect(self.login)
-        self.bt_rejestr.clicked.connect(self.rejestr)
-        self.bt_rejestr.setToolTip("juuuuuuhuuu")
-        self.bt_ok.clicked.connect(self.test)
-
-    def login(self):
-        username = self.le_login.text()
-        password = self.le_haslo.text()
-
-        db_session = Session()
-        try:
-            user = db_session.query(Users).filter_by(username=username).first()
-            if user:
-                if user.password_hashed == password:
-                    print("zalogowano pomyślnie")
-                    self.hide()
-                    self.mainwindow.show()
-                else:
-                    print("błędne hasło")
-            else:
-                print("Użytkownik nie istnieje")
-        except Exception as e:
-            print(f"wystapil blad podczas logowania: {e}")
-        finally:
-            db_session.close()
-        
-        
-
-    def rejestr(self):
-        self.stackedWidget.setCurrentWidget(self.page)
-        
-        
-    def test(self):
-        if not all([self.le_username, self.le_firstname, self.le_surname, self.le_email, self.le_phone, self.le_password]):
-            print("Wszystkie pola muszą być wypełnione!")
-            return
-
-        new_user = Users()
-        new_user.username = self.le_username.text()
-        new_user.firstname = self.le_firstname.text()
-        new_user.surname = self.le_surname.text()
-        new_user.email = self.le_email.text()
-        new_user.phone = self.le_phone.text()
-        new_user.password_hashed = self.le_password.text()
-        new_user.profile_b64 = self.le_profile_b64.text() if self.le_profile_b64.text() else None
-        
-        
-        db_session = Session()
-        try:
-            db_session.add(new_user)
-            db_session.commit()
-            print("Użytkownik został pomyślnie dodany do bazy danych.")
-        except Exception as e:
-            db_session.rollback()
-            print(f"Wystąpił błąd podczas dodawania użytkowania: {e}")
-        finally:
-            db_session.close()
-        self.hide()
-        self.mainwindow.show()
-
-        
-
 class MainWindow(QMainWindow, Ui_MainWindow):
     
     def __init__(self):
         super().__init__()
         self.setupUi(self)
+        self.db_session = Session() ################################# 2 raz
+        #self.user_id = None
+        self.current_user: Users = None
         self.loginpage = LoginPage(self)
         self.loginpage.show()
         self.l_photos.setScaledContents(True)
@@ -117,6 +48,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.bt_mieszkania.clicked.connect(self.show_page2)
 
         self.bt_konto.clicked.connect(self.show_page)
+        self.bt_edytuj.clicked.connect(self.save_changes)
+        self.bt_wyloguj.clicked.connect(self.log_out)
 
 
     def reset_timer(self):
@@ -148,6 +81,147 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def show_page(self):
         self.stackedWidget.setCurrentWidget(self.page)
+        self.le_kontouser.setText(self.current_user.username)
+        self.le_kontofirstname.setText(self.current_user.firstname)
+        self.le_kontosurname.setText(self.current_user.surname)
+        self.le_kontoemail.setText(self.current_user.email)
+        self.le_kontophone.setText(self.current_user.phone)
+        self.le_kontopassword.setText(self.current_user.password_hashed)
+        
+    def save_changes(self):
+
+        updated_data = {
+            "username": self.le_kontouser.text(),
+            "firstname": self.le_kontofirstname.text(),
+            "surname": self.le_kontosurname.text(),
+            "email": self.le_kontoemail.text(),
+            "phone": self.le_kontophone.text() 
+        }
+
+        self.original_data = {
+                "username": self.current_user.username,
+                "firstname": self.current_user.firstname,
+                "surname": self.current_user.surname,
+                "email": self.current_user.email,
+                "phone": self.current_user.phone,
+            }
+        
+        changed_fields = {
+            key: value for key, value in updated_data.items() if value != self.original_data.get(key)
+        }
+
+        if changed_fields:
+            try:
+                for field, new_value in changed_fields.items():
+                    setattr(self.current_user, field, new_value)
+                self.db_session.commit()
+                print("zmiany zostały zapisane")
+            except Exception as e:
+                self.db_session.rollback()
+                print(f"Błąd podczas zapisywania zmian: {e}")
+        else:
+            print("Brak zmian do zapsiania")
+
+    def log_out(self):
+
+        self.db_session.close()
+        self.hide()
+        self.current_user: Users = None
+        self.loginpage.show()
+
+
+#username = Column(String(50), nullable=False, unique=True)
+#    firstname = Column(String(50), nullable=False)
+#    surname = Column(String(50), nullable=False)
+#    email = Column(String(100), nullable=False, unique=True)
+ #   phone = Column(String(100), nullable=False)
+ #   password_hashed = Column(String(200), nullable=False)
+ #   profile_b64 = Column(String(), nullable=True)
+
+
+
+
+
+class LoginPage(QWidget, Ui_Form):
+
+    def __init__(self, mainwindow: MainWindow):
+        super().__init__()
+        self.setupUi(self)
+        self.mainwindow = mainwindow
+        self.db_session = self.mainwindow.db_session
+        
+        self.stackedWidget.setCurrentWidget(self.page_2)
+        self.bt_login.clicked.connect(self.login)
+        self.bt_rejestr.clicked.connect(self.rejestr)
+        self.bt_rejestr.setToolTip("juuuuuuhuuu")
+        self.bt_ok.clicked.connect(self.test)
+
+    def login(self):
+        username = self.le_login.text()
+        password = self.le_haslo.text()
+
+        #db_session = Session()
+        try:
+            current_user = self.db_session.query(Users).filter_by(username=username).first()
+            if current_user:
+                if current_user.password_hashed == password:
+                    print("zalogowano pomyślnie")
+                    #self.mainwindow.user_id = self.mainwindow.current_user.user_id
+                    self.le_login.setText("")
+                    self.le_haslo.setText("")
+                    self.hide()
+                    self.mainwindow.current_user = current_user
+                    print(self.mainwindow.current_user)
+                    print(type(self.mainwindow.current_user))
+
+                    self.mainwindow.show()
+                else:
+                    print("błędne hasło")
+            else:
+                print("Użytkownik nie istnieje")
+        except Exception as e:
+            print(f"wystapil blad podczas logowania: {e}")
+            self.db_session.close()
+        
+            
+        
+        
+
+    def rejestr(self):
+        self.stackedWidget.setCurrentWidget(self.page)
+        
+        
+    def test(self):
+        if not all([self.le_username, self.le_firstname, self.le_surname, self.le_email, self.le_phone, self.le_password]):
+            print("Wszystkie pola muszą być wypełnione!")
+            return
+
+        new_user = Users()
+        new_user.username = self.le_username.text()
+        new_user.firstname = self.le_firstname.text()
+        new_user.surname = self.le_surname.text()
+        new_user.email = self.le_email.text()
+        new_user.phone = self.le_phone.text()
+        new_user.password_hashed = self.le_password.text()
+        new_user.profile_b64 = self.le_profile_b64.text() if self.le_profile_b64.text() else None
+        
+        
+        
+        try:
+            self.db_session.add(new_user)
+            self.db_session.commit()
+            print("Użytkownik został pomyślnie dodany do bazy danych.")
+        except Exception as e:
+            self.db_session.rollback()
+            print(f"Wystąpił błąd podczas dodawania użytkowania: {e}")
+            self.db_session.close()    
+        
+        self.hide()
+        self.mainwindow.show()
+
+        
+
+
 
 if __name__ == "__main__":
     app = QApplication()
