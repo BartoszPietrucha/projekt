@@ -1,11 +1,11 @@
-from PySide6.QtWidgets import QApplication, QWidget, QMainWindow
+from PySide6.QtWidgets import QApplication, QWidget, QMainWindow, QFileDialog
 from src.UI.templates.LogInPage import Ui_Form
 from src.UI.templates.MainWindow import Ui_MainWindow
 from PySide6.QtGui import QPixmap, QImage
 from PySide6.QtCore import QTimer
 import os
 from src.db.db_init.initialize_db import UserData, Session, Users
-
+import base64
 
 
 
@@ -155,6 +155,8 @@ class LoginPage(QWidget, Ui_Form):
         self.bt_rejestr.clicked.connect(self.rejestr)
         self.bt_rejestr.setToolTip("juuuuuuhuuu")
         self.bt_ok.clicked.connect(self.test)
+        self.bt_regpath.clicked.connect(self.upload_photo)
+
 
     def login(self):
         username = self.le_login.text()
@@ -190,7 +192,20 @@ class LoginPage(QWidget, Ui_Form):
     def rejestr(self):
         self.stackedWidget.setCurrentWidget(self.page)
         
-        
+    def upload_photo(self):
+
+        file_path, _ = QFileDialog.getOpenFileName(self, "Wybierz zdjecie profilowe", "", "Images (*.png *.jpg *.jpeg *.bmp)")
+
+        if file_path:
+            pixmap = QPixmap(file_path)
+            self.l_regphoto.setPixmap(pixmap)
+            self.l_regphoto.setScaledContents(True)
+            
+            with open(file_path, "rb") as file:
+                image_data = file.read()
+                self.profile_b64 = base64.b64encode(image_data).decode('utf-8')  # Przechowaj w base64
+
+
     def test(self):
         if not all([self.le_username, self.le_firstname, self.le_surname, self.le_email, self.le_phone, self.le_password]):
             print("Wszystkie pola muszą być wypełnione!")
@@ -203,7 +218,7 @@ class LoginPage(QWidget, Ui_Form):
         new_user.email = self.le_email.text()
         new_user.phone = self.le_phone.text()
         new_user.password_hashed = self.le_password.text()
-        new_user.profile_b64 = self.le_profile_b64.text() if self.le_profile_b64.text() else None
+        new_user.profile_b64 = self.profile_b64 if self.profile_b64 else None
         
         
         

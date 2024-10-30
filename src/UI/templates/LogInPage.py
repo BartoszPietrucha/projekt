@@ -130,21 +130,42 @@ class Ui_Form(object):
 
         self.verticalLayout_5.addWidget(self.le_password)
 
-        self.le_profile_b64 = QLineEdit(self.frame_15)
-        self.le_profile_b64.setObjectName(u"le_profile_b64")
+        self.frame_17 = QFrame(self.frame_15)
+        self.frame_17.setObjectName(u"frame_17")
+        self.frame_17.setMaximumSize(QSize(16777215, 100))
+        self.frame_17.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_17.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_8 = QHBoxLayout(self.frame_17)
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.bt_regpath = QPushButton(self.frame_17)
+        self.bt_regpath.setObjectName(u"bt_regpath")
 
-        self.verticalLayout_5.addWidget(self.le_profile_b64)
+        self.horizontalLayout_8.addWidget(self.bt_regpath)
+
+        self.l_regphoto = QLabel(self.frame_17)
+        self.l_regphoto.setObjectName(u"l_regphoto")
+
+        self.horizontalLayout_8.addWidget(self.l_regphoto)
+
+
+        self.verticalLayout_5.addWidget(self.frame_17)
 
 
         self.horizontalLayout_7.addWidget(self.frame_15)
 
         self.frame_16 = QFrame(self.frame_13)
         self.frame_16.setObjectName(u"frame_16")
+        self.frame_16.setMinimumSize(QSize(50, 0))
+        self.frame_16.setMaximumSize(QSize(100, 16777215))
         self.frame_16.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_16.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_6 = QVBoxLayout(self.frame_16)
+        self.verticalLayout_6.setObjectName(u"verticalLayout_6")
         self.bt_ok = QPushButton(self.frame_16)
         self.bt_ok.setObjectName(u"bt_ok")
-        self.bt_ok.setGeometry(QRect(30, 190, 93, 29))
+
+        self.verticalLayout_6.addWidget(self.bt_ok)
+
 
         self.horizontalLayout_7.addWidget(self.frame_16)
 
@@ -328,6 +349,8 @@ class Ui_Form(object):
         self.label_9.setText(QCoreApplication.translate("Form", u"phone", None))
         self.label_10.setText(QCoreApplication.translate("Form", u"password", None))
         self.label_11.setText(QCoreApplication.translate("Form", u"profile_b64", None))
+        self.bt_regpath.setText(QCoreApplication.translate("Form", u"Wybierz zdj\u0119cie", None))
+        self.l_regphoto.setText(QCoreApplication.translate("Form", u"zdjecie", None))
         self.bt_ok.setText(QCoreApplication.translate("Form", u"OK", None))
         self.label_2.setText(QCoreApplication.translate("Form", u"Zaloguj si\u0119", None))
         self.label.setText(QCoreApplication.translate("Form", u"login", None))
