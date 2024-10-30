@@ -2,7 +2,7 @@ from PySide6.QtWidgets import QApplication, QWidget, QMainWindow, QFileDialog
 from src.UI.templates.LogInPage import Ui_Form
 from src.UI.templates.MainWindow import Ui_MainWindow
 from PySide6.QtGui import QPixmap, QImage
-from PySide6.QtCore import QTimer
+from PySide6.QtCore import QTimer, QByteArray
 import os
 from src.db.db_init.initialize_db import UserData, Session, Users
 import base64
@@ -50,7 +50,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.bt_konto.clicked.connect(self.show_page)
         self.bt_edytuj.clicked.connect(self.save_changes)
         self.bt_wyloguj.clicked.connect(self.log_out)
-
+        self.bt_kontouploadphoto.clicked.connect(self.upload_photo)
 
     def reset_timer(self):
         self.timer.stop()
@@ -87,6 +87,29 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.le_kontoemail.setText(self.current_user.email)
         self.le_kontophone.setText(self.current_user.phone)
         self.le_kontopassword.setText(self.current_user.password_hashed)
+        encoded_image_data = self.current_user.profile_b64
+
+        if encoded_image_data:
+            image_data = base64.b64decode(encoded_image_data)
+            image = QPixmap
+            image.loadFromData(QByteArray(image_data), format="JPG")
+
+            self.l_kontophoto.setPixmap(image)
+            self.l_kontophoto.setScaledContents(True)
+        else:
+            self.l_kontophoto
+
+    def upload_photo(self):
+        file_path, _ = QFileDialog.getOpenFileName(self, "Wybierz zdjecie profilowe", "", "Images (*.png *.jpg *.jpeg *.bmp)")
+
+        if file_path:
+            pixmap = QPixmap(file_path)
+            self.l_kontophoto.setPixmap(pixmap)
+            self.l_kontophoto.setScaledContents(True)
+            
+            with open(file_path, "rb") as file:
+                image_data = file.read()
+                self.profile_b64 = base64.b64encode(image_data).decode('utf-8')
         
     def save_changes(self):
 

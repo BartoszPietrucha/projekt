@@ -140,10 +140,25 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addWidget(self.le_kontopassword)
 
-        self.le_kontoprofile_b64 = QLineEdit(self.frame)
-        self.le_kontoprofile_b64.setObjectName(u"le_kontoprofile_b64")
+        self.frame_6 = QFrame(self.frame)
+        self.frame_6.setObjectName(u"frame_6")
+        self.frame_6.setMaximumSize(QSize(16777215, 100))
+        self.frame_6.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_6.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_6 = QHBoxLayout(self.frame_6)
+        self.horizontalLayout_6.setObjectName(u"horizontalLayout_6")
+        self.bt_kontouploadphoto = QPushButton(self.frame_6)
+        self.bt_kontouploadphoto.setObjectName(u"bt_kontouploadphoto")
 
-        self.verticalLayout_2.addWidget(self.le_kontoprofile_b64)
+        self.horizontalLayout_6.addWidget(self.bt_kontouploadphoto)
+
+        self.l_kontophoto = QLabel(self.frame_6)
+        self.l_kontophoto.setObjectName(u"l_kontophoto")
+
+        self.horizontalLayout_6.addWidget(self.l_kontophoto)
+
+
+        self.verticalLayout_2.addWidget(self.frame_6)
 
 
         self.horizontalLayout_4.addWidget(self.frame)
@@ -230,6 +245,8 @@ class Ui_MainWindow(object):
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"phone", None))
         self.label_7.setText(QCoreApplication.translate("MainWindow", u"password", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"profile_b64", None))
+        self.bt_kontouploadphoto.setText(QCoreApplication.translate("MainWindow", u"Wybierz zdj\u0119cie", None))
+        self.l_kontophoto.setText(QCoreApplication.translate("MainWindow", u"Zdj\u0119cie", None))
         self.bt_edytuj.setText(QCoreApplication.translate("MainWindow", u"Edytuj", None))
         self.bt_mieszkania_2.setText(QCoreApplication.translate("MainWindow", u"mieszkania", None))
         self.bt_left.setText(QCoreApplication.translate("MainWindow", u"<", None))
