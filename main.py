@@ -64,11 +64,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def on_l_plus_clicked(self, event: QMouseEvent):
         if event.button() == Qt.MouseButton.LeftButton:
-            self.show_page()
+            self.show_page4()
 
     def on_l_plik_clicked(self, event: QMouseEvent):
         if event.button() == Qt.MouseButton.LeftButton:
-            self.show_page()
+            self.show_page5()
 
     def reset_timer(self):
         self.timer.stop()
@@ -110,7 +110,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.l_plik.setPixmap(pixmap)
             self.l_plik.setScaledContents(True)
 
+    def show_page4(self):
+        self.stackedWidget.setCurrentWidget(self.page_4)
 
+    def show_page5(self):
+        self.stackedWidget.setCurrentWidget(self.page_5)    
 
 
     def show_page(self):
