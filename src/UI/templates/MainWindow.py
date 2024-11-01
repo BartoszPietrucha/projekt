@@ -15,10 +15,10 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QHBoxLayout, QLabel,
-    QLineEdit, QMainWindow, QMenuBar, QPushButton,
-    QSizePolicy, QStackedWidget, QStatusBar, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QGridLayout, QHBoxLayout,
+    QLabel, QLineEdit, QMainWindow, QMenuBar,
+    QPushButton, QSizePolicy, QStackedWidget, QStatusBar,
+    QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -154,6 +154,7 @@ class Ui_MainWindow(object):
 
         self.l_kontophoto = QLabel(self.frame_6)
         self.l_kontophoto.setObjectName(u"l_kontophoto")
+        self.l_kontophoto.setMaximumSize(QSize(200, 200))
 
         self.horizontalLayout_6.addWidget(self.l_kontophoto)
 
@@ -180,10 +181,56 @@ class Ui_MainWindow(object):
         self.page_2.setObjectName(u"page_2")
         self.horizontalLayout_5 = QHBoxLayout(self.page_2)
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
-        self.bt_mieszkania_2 = QPushButton(self.page_2)
-        self.bt_mieszkania_2.setObjectName(u"bt_mieszkania_2")
+        self.frame_7 = QFrame(self.page_2)
+        self.frame_7.setObjectName(u"frame_7")
+        self.frame_7.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_7.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_7 = QHBoxLayout(self.frame_7)
+        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
+        self.frame_8 = QFrame(self.frame_7)
+        self.frame_8.setObjectName(u"frame_8")
+        self.frame_8.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_8.setFrameShadow(QFrame.Shadow.Raised)
+        self.gridLayout = QGridLayout(self.frame_8)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.l_plus = QLabel(self.frame_8)
+        self.l_plus.setObjectName(u"l_plus")
+        self.l_plus.setMinimumSize(QSize(250, 0))
+        self.l_plus.setMaximumSize(QSize(16777215, 250))
 
-        self.horizontalLayout_5.addWidget(self.bt_mieszkania_2)
+        self.gridLayout.addWidget(self.l_plus, 0, 0, 1, 1)
+
+        self.label_10 = QLabel(self.frame_8)
+        self.label_10.setObjectName(u"label_10")
+
+        self.gridLayout.addWidget(self.label_10, 1, 0, 1, 1)
+
+
+        self.horizontalLayout_7.addWidget(self.frame_8)
+
+        self.frame_9 = QFrame(self.frame_7)
+        self.frame_9.setObjectName(u"frame_9")
+        self.frame_9.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_9.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_3 = QVBoxLayout(self.frame_9)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.l_plik = QLabel(self.frame_9)
+        self.l_plik.setObjectName(u"l_plik")
+        self.l_plik.setMinimumSize(QSize(250, 0))
+        self.l_plik.setMaximumSize(QSize(16777215, 250))
+
+        self.verticalLayout_3.addWidget(self.l_plik)
+
+        self.label_11 = QLabel(self.frame_9)
+        self.label_11.setObjectName(u"label_11")
+
+        self.verticalLayout_3.addWidget(self.label_11)
+
+
+        self.horizontalLayout_7.addWidget(self.frame_9)
+
+
+        self.horizontalLayout_5.addWidget(self.frame_7)
 
         self.stackedWidget.addWidget(self.page_2)
         self.page_3 = QWidget()
@@ -227,7 +274,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -248,7 +295,10 @@ class Ui_MainWindow(object):
         self.bt_kontouploadphoto.setText(QCoreApplication.translate("MainWindow", u"Wybierz zdj\u0119cie", None))
         self.l_kontophoto.setText(QCoreApplication.translate("MainWindow", u"Zdj\u0119cie", None))
         self.bt_edytuj.setText(QCoreApplication.translate("MainWindow", u"Edytuj", None))
-        self.bt_mieszkania_2.setText(QCoreApplication.translate("MainWindow", u"mieszkania", None))
+        self.l_plus.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Dodaj mieszkanie", None))
+        self.l_plik.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Lista mieszka\u0144", None))
         self.bt_left.setText(QCoreApplication.translate("MainWindow", u"<", None))
         self.l_photos.setText(QCoreApplication.translate("MainWindow", u"                                                        zdjecia", None))
         self.bt_right.setText(QCoreApplication.translate("MainWindow", u">", None))

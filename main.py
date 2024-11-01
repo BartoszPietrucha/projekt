@@ -78,6 +78,22 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     
     def show_page2(self):
         self.stackedWidget.setCurrentWidget(self.page_2)
+        path_plus = "C:/Programy/python/projekt/projekt/src/UI/plus.jpg"
+        if os.path.exists(path_plus):
+            image = QImage(path_plus)
+            pixmap = QPixmap(image)
+            self.l_plus.setPixmap(pixmap)
+            self.l_plus.setScaledContents(True)
+
+        path_plik = "C:/Programy/python/projekt/projekt/src/UI/folder.jpg"
+        if os.path.exists(path_plik):
+            image = QImage(path_plik)
+            pixmap = QPixmap(image)
+            self.l_plik.setPixmap(pixmap)
+            self.l_plik.setScaledContents(True)
+
+
+
 
     def show_page(self):
         self.stackedWidget.setCurrentWidget(self.page)
@@ -97,7 +113,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.l_kontophoto.setPixmap(image)
             self.l_kontophoto.setScaledContents(True)
         else:
-            self.l_kontophoto
+            image = QImage("C:/Programy/python/projekt//projekt/src/UI/user.jpg")
+            pixmap = QPixmap(image)
+            self.l_kontophoto.setPixmap(pixmap)
+            self.l_kontophoto.setScaledContents(True)
 
     def upload_photo(self):
         file_path, _ = QFileDialog.getOpenFileName(self, "Wybierz zdjecie profilowe", "", "Images (*.png *.jpg *.jpeg *.bmp)")
@@ -187,7 +206,9 @@ class LoginPage(QWidget, Ui_Form):
 
         #db_session = Session()
         try:
+            
             current_user = self.db_session.query(Users).filter_by(username=username).first()
+            
             if current_user:
                 if current_user.password_hashed == password:
                     print("zalogowano pomyślnie")
@@ -202,6 +223,7 @@ class LoginPage(QWidget, Ui_Form):
                     self.mainwindow.show()
                 else:
                     print("błędne hasło")
+                    
             else:
                 print("Użytkownik nie istnieje")
         except Exception as e:
