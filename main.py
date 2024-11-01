@@ -1,8 +1,8 @@
 from PySide6.QtWidgets import QApplication, QWidget, QMainWindow, QFileDialog
 from src.UI.templates.LogInPage import Ui_Form
 from src.UI.templates.MainWindow import Ui_MainWindow
-from PySide6.QtGui import QPixmap, QImage
-from PySide6.QtCore import QTimer, QByteArray
+from PySide6.QtGui import QPixmap, QImage, QCursor, QMouseEvent
+from PySide6.QtCore import QTimer, QByteArray, Qt
 import os
 from src.db.db_init.initialize_db import UserData, Session, Users
 import base64
@@ -51,6 +51,24 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.bt_edytuj.clicked.connect(self.save_changes)
         self.bt_wyloguj.clicked.connect(self.log_out)
         self.bt_kontouploadphoto.clicked.connect(self.upload_photo)
+
+        #kursor na reke
+        self.l_plus.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.l_plus.mousePressEvent = self.on_l_plus_clicked
+
+        self.l_plik.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
+        self.l_plik.mousePressEvent = self.on_l_plik_clicked
+
+
+
+
+    def on_l_plus_clicked(self, event: QMouseEvent):
+        if event.button() == Qt.MouseButton.LeftButton:
+            self.show_page()
+
+    def on_l_plik_clicked(self, event: QMouseEvent):
+        if event.button() == Qt.MouseButton.LeftButton:
+            self.show_page()
 
     def reset_timer(self):
         self.timer.stop()
