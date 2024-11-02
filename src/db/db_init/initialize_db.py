@@ -48,7 +48,7 @@ class Info(Base):
     ulica = Column(String(50), nullable=False)
     adres_pocztowy = Column(String(50), nullable=False)
     numer_budynku = Column(Integer, nullable=False)
-    numer_lokalu = Column(Integer, nullable=False)
+    numer_lokalu = Column(Integer, nullable=True)
     metraz = Column(Integer, nullable=False)
     pokoje = Column(Integer, nullable=False)
     wlasciciel = Column(String(100), nullable = False)
@@ -79,6 +79,12 @@ class Residents(Base):
     email = Column(String(100), nullable=False, unique=True)
     phone = Column(String(100), nullable=False)
     profile_b64 = Column(String(), nullable=True)
+    miasto = Column(String(50), nullable=False)
+    ulica = Column(String(100), nullable=False)
+    adres_pocztowy = Column(String(50), nullable=False)
+    numer_budynku = Column(Integer, nullable=False)
+    numer_lokalu = Column(Integer, nullable=True)
+
     
     apartment = relationship("Apartments", back_populates="residents")
 
