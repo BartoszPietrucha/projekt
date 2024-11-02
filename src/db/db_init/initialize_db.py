@@ -1,5 +1,5 @@
 from sqlalchemy.orm import declarative_base
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey
+from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, Boolean
 from sqlalchemy.orm import relationship
 #tutaj 2 czesc
 from sqlalchemy.orm import sessionmaker
@@ -37,6 +37,27 @@ class Apartments(Base):
 
     # One-to-Many: One apartment can have many residents
     residents = relationship("Residents", back_populates="apartment")
+
+    info = relationship("Info", back_populates="apartment")
+
+class Info(Base):
+    __tablename__ = "info"
+    
+    apartment_id = Column(Integer, ForeignKey("apartments.apartment_id"), primary_key=True)
+    miasto = Column(String(50), nullable=False)
+    ulica = Column(String(50), nullable=False)
+    adres_pocztowy = Column(String(50), nullable=False)
+    numer_budynku = Column(Integer, nullable=False)
+    numer_lokalu = Column(Integer, nullable=False)
+    metraz = Column(Integer, nullable=False)
+    pokoje = Column(Integer, nullable=False)
+    wlasciciel = Column(String(100), nullable = False)
+    stan = Column(String(50), nullable = True)
+    wc_osobno = Column(Boolean, nullable=False)
+    cena_wynajmu = Column(Integer, nullable=False)
+
+    apartment = relationship("Apartments", back_populates="info")
+
 
 
 class Photos(Base):
