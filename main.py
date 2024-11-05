@@ -4,7 +4,7 @@ from src.UI.templates.MainWindow import Ui_MainWindow
 from PySide6.QtGui import QPixmap, QImage, QCursor, QMouseEvent
 from PySide6.QtCore import QTimer, QByteArray, Qt
 import os
-from src.db.db_init.initialize_db import UserData, Session, Users
+from src.db.db_init.initialize_db import UserData, Session, Users, Apartments, Info
 import base64
 
 
@@ -27,7 +27,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         super().__init__()
         self.setupUi(self)
         self.db_session = Session() ################################# 2 raz
-        #self.user_id = None
+        self.userr_id = None
         self.current_user: Users = None
         self.loginpage = LoginPage(self)
         self.loginpage.show()
@@ -60,7 +60,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.l_plik.mousePressEvent = self.on_l_plik_clicked
 
 
-
+    def event(self, event):
+        pass
 
     def on_l_plus_clicked(self, event: QMouseEvent):
         if event.button() == Qt.MouseButton.LeftButton:
@@ -234,14 +235,14 @@ class LoginPage(QWidget, Ui_Form):
             if current_user:
                 if current_user.password_hashed == password:
                     print("zalogowano pomyślnie")
-                    #self.mainwindow.user_id = self.mainwindow.current_user.user_id
+                    self.mainwindow.userr_id = current_user.user_id
                     self.le_login.setText("")
                     self.le_haslo.setText("")
                     self.hide()
                     self.mainwindow.current_user = current_user
                     print(self.mainwindow.current_user)
                     print(type(self.mainwindow.current_user))
-
+                    print(self.mainwindow.userr_id)
                     self.mainwindow.show()
                 else:
                     print("błędne hasło")
