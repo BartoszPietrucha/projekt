@@ -60,8 +60,6 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.l_plik.mousePressEvent = self.on_l_plik_clicked
 
 
-    def event(self, event):
-        pass
 
     def on_l_plus_clicked(self, event: QMouseEvent):
         if event.button() == Qt.MouseButton.LeftButton:
@@ -126,11 +124,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.le_kontoemail.setText(self.current_user.email)
         self.le_kontophone.setText(self.current_user.phone)
         self.le_kontopassword.setText(self.current_user.password_hashed)
-        encoded_image_data = self.current_user.profile_b64
+        encoded_image_data = self.current_user.profile_b64 if self.current_user.profile_b64 else None
 
         if encoded_image_data:
             image_data = base64.b64decode(encoded_image_data)
-            image = QPixmap
+            image = QPixmap()
             image.loadFromData(QByteArray(image_data), format="JPG")
 
             self.l_kontophoto.setPixmap(image)
@@ -154,6 +152,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 self.profile_b64 = base64.b64encode(image_data).decode('utf-8')
         
     def save_changes(self):
+        
+        image_changed = self.profile_b64 != self.current_user.profile_b64
 
         updated_data = {
             "username": self.le_kontouser.text(),
@@ -175,6 +175,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             key: value for key, value in updated_data.items() if value != self.original_data.get(key)
         }
 
+        if image_changed:
+            changed_fields["profile_b64"] = self.profile_b64
+
         if changed_fields:
             try:
                 for field, new_value in changed_fields.items():
@@ -191,7 +194,27 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.db_session.close()
         self.hide()
+
+        
+        #wszystkie le
+        self.le_kontouser.setText("")
+        self.le_kontofirstname.setText("")
+        self.le_kontosurname.setText("")
+        self.le_kontoemail.setText("")
+        self.le_kontophone.setText("")
+        self.le_kontopassword.setText("")
+        # or self.profile_b64 tuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuuu
+        if (self.current_user.profile_b64):
+            image = QImage("C:/Programy/python/projekt//projekt/src/UI/user.jpg")
+            pixmap = QPixmap(image)
+            self.l_kontophoto.setPixmap(pixmap)
+            self.l_kontophoto.setScaledContents(True)
+
+        #czyszczenie wszystkiego
         self.current_user: Users = None
+        
+
+
         self.loginpage.show()
 
 
@@ -243,6 +266,7 @@ class LoginPage(QWidget, Ui_Form):
                     print(self.mainwindow.current_user)
                     print(type(self.mainwindow.current_user))
                     print(self.mainwindow.userr_id)
+                    self.stackedWidget.setCurrentWidget(self.mainwindow.page_3)
                     self.mainwindow.show()
                 else:
                     print("błędne hasło")
@@ -300,7 +324,9 @@ class LoginPage(QWidget, Ui_Form):
             self.db_session.close()    
         
         self.hide()
+        self.stackedWidget.setCurrentWidget(self.mainwindow.page_3)
         self.mainwindow.show()
+        
 
         
 
