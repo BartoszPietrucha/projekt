@@ -9,9 +9,11 @@ import base64
 
 
 
-#dodawanie mieszkania
-#dodanie zdjec mieszkania
+#dodawanie zdjec mieszkania
 #dodanie residenta
+
+#obejrzenie zdjecia jednego mieszkania
+#obejrzenie danych mieszkania
 
 #dodawanie zdjęć
 #dodanie zdjec mieszkań na strone startową
@@ -60,7 +62,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.bt_dodaj_najemcow.clicked.connect(self.show_page6)
         self.bt_resident_wroc.clicked.connect(self.show_page4)
         self.bt_listamieszkan_wroc.clicked.connect(self.show_page4)
-        
+
 
 
 
