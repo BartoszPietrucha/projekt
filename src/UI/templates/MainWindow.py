@@ -487,25 +487,15 @@ class Ui_MainWindow(object):
         self.frame_13.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalLayout_13 = QVBoxLayout(self.frame_13)
         self.verticalLayout_13.setObjectName(u"verticalLayout_13")
-        self.bt_zapisz_dane = QPushButton(self.frame_13)
-        self.bt_zapisz_dane.setObjectName(u"bt_zapisz_dane")
+        self.bt_nastepna_strona = QPushButton(self.frame_13)
+        self.bt_nastepna_strona.setObjectName(u"bt_nastepna_strona")
 
-        self.verticalLayout_13.addWidget(self.bt_zapisz_dane)
+        self.verticalLayout_13.addWidget(self.bt_nastepna_strona)
 
         self.bt_cofnij = QPushButton(self.frame_13)
         self.bt_cofnij.setObjectName(u"bt_cofnij")
 
         self.verticalLayout_13.addWidget(self.bt_cofnij)
-
-        self.bt_resident_add_photos = QPushButton(self.frame_13)
-        self.bt_resident_add_photos.setObjectName(u"bt_resident_add_photos")
-
-        self.verticalLayout_13.addWidget(self.bt_resident_add_photos)
-
-        self.bt_dodaj_najemcow = QPushButton(self.frame_13)
-        self.bt_dodaj_najemcow.setObjectName(u"bt_dodaj_najemcow")
-
-        self.verticalLayout_13.addWidget(self.bt_dodaj_najemcow)
 
 
         self.verticalLayout_4.addWidget(self.frame_13)
@@ -774,6 +764,77 @@ class Ui_MainWindow(object):
         self.stackedWidget.addWidget(self.page_6)
         self.page_7 = QWidget()
         self.page_7.setObjectName(u"page_7")
+        self.horizontalLayout_33 = QHBoxLayout(self.page_7)
+        self.horizontalLayout_33.setObjectName(u"horizontalLayout_33")
+        self.frame_71 = QFrame(self.page_7)
+        self.frame_71.setObjectName(u"frame_71")
+        self.frame_71.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_71.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_32 = QVBoxLayout(self.frame_71)
+        self.verticalLayout_32.setObjectName(u"verticalLayout_32")
+        self.frame_72 = QFrame(self.frame_71)
+        self.frame_72.setObjectName(u"frame_72")
+        self.frame_72.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_72.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_34 = QHBoxLayout(self.frame_72)
+        self.horizontalLayout_34.setObjectName(u"horizontalLayout_34")
+        self.bt_left_add = QPushButton(self.frame_72)
+        self.bt_left_add.setObjectName(u"bt_left_add")
+        self.bt_left_add.setMaximumSize(QSize(40, 16777215))
+
+        self.horizontalLayout_34.addWidget(self.bt_left_add)
+
+        self.frame_74 = QFrame(self.frame_72)
+        self.frame_74.setObjectName(u"frame_74")
+        self.frame_74.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_74.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_35 = QHBoxLayout(self.frame_74)
+        self.horizontalLayout_35.setObjectName(u"horizontalLayout_35")
+        self.l_photos_add = QLabel(self.frame_74)
+        self.l_photos_add.setObjectName(u"l_photos_add")
+
+        self.horizontalLayout_35.addWidget(self.l_photos_add)
+
+
+        self.horizontalLayout_34.addWidget(self.frame_74)
+
+        self.bt_right_add = QPushButton(self.frame_72)
+        self.bt_right_add.setObjectName(u"bt_right_add")
+        self.bt_right_add.setMaximumSize(QSize(40, 16777215))
+
+        self.horizontalLayout_34.addWidget(self.bt_right_add)
+
+
+        self.verticalLayout_32.addWidget(self.frame_72)
+
+        self.frame_73 = QFrame(self.frame_71)
+        self.frame_73.setObjectName(u"frame_73")
+        self.frame_73.setMaximumSize(QSize(16777215, 120))
+        self.frame_73.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_73.setFrameShadow(QFrame.Shadow.Raised)
+        self.verticalLayout_33 = QVBoxLayout(self.frame_73)
+        self.verticalLayout_33.setObjectName(u"verticalLayout_33")
+        self.bt_zapisz_dane = QPushButton(self.frame_73)
+        self.bt_zapisz_dane.setObjectName(u"bt_zapisz_dane")
+
+        self.verticalLayout_33.addWidget(self.bt_zapisz_dane)
+
+        self.bt_usun_zdjecie = QPushButton(self.frame_73)
+        self.bt_usun_zdjecie.setObjectName(u"bt_usun_zdjecie")
+
+        self.verticalLayout_33.addWidget(self.bt_usun_zdjecie)
+
+        self.bt_dodaj_od_razu = QPushButton(self.frame_73)
+        self.bt_dodaj_od_razu.setObjectName(u"bt_dodaj_od_razu")
+
+        self.verticalLayout_33.addWidget(self.bt_dodaj_od_razu)
+
+
+        self.verticalLayout_32.addWidget(self.frame_73)
+
+
+        self.horizontalLayout_33.addWidget(self.frame_71)
+
         self.stackedWidget.addWidget(self.page_7)
 
         self.horizontalLayout_2.addWidget(self.stackedWidget)
@@ -792,7 +853,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(6)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -835,10 +896,8 @@ class Ui_MainWindow(object):
         self.cb_osoba_wc.setItemText(0, QCoreApplication.translate("MainWindow", u"tak", None))
         self.cb_osoba_wc.setItemText(1, QCoreApplication.translate("MainWindow", u"nie", None))
 
-        self.bt_zapisz_dane.setText(QCoreApplication.translate("MainWindow", u"zapisz dane", None))
+        self.bt_nastepna_strona.setText(QCoreApplication.translate("MainWindow", u"nast\u0119pna strona", None))
         self.bt_cofnij.setText(QCoreApplication.translate("MainWindow", u"cofnij", None))
-        self.bt_resident_add_photos.setText(QCoreApplication.translate("MainWindow", u"dodaj zdj\u0119cia mieszkania", None))
-        self.bt_dodaj_najemcow.setText(QCoreApplication.translate("MainWindow", u"dodaj najemc\u00f3w", None))
         self.l_resident_photo.setText(QCoreApplication.translate("MainWindow", u"zdjecie", None))
         self.l_resident_photo2.setText(QCoreApplication.translate("MainWindow", u"zdjecie2", None))
         self.bt_listamieszkan_wroc.setText(QCoreApplication.translate("MainWindow", u"wr\u00f3\u0107", None))
@@ -853,5 +912,11 @@ class Ui_MainWindow(object):
         self.le_photo_resident.setText(QCoreApplication.translate("MainWindow", u"Zdj\u0119cie", None))
         self.bt_resident_ok.setText(QCoreApplication.translate("MainWindow", u"Ok", None))
         self.bt_resident_wroc.setText(QCoreApplication.translate("MainWindow", u"wr\u00f3\u0107", None))
+        self.bt_left_add.setText(QCoreApplication.translate("MainWindow", u"<", None))
+        self.l_photos_add.setText(QCoreApplication.translate("MainWindow", u"zdj\u0119cia", None))
+        self.bt_right_add.setText(QCoreApplication.translate("MainWindow", u">", None))
+        self.bt_zapisz_dane.setText(QCoreApplication.translate("MainWindow", u"zapisz mieszkanie", None))
+        self.bt_usun_zdjecie.setText(QCoreApplication.translate("MainWindow", u"usu\u0144 zdj\u0119cie, kt\u00f3re widzisz", None))
+        self.bt_dodaj_od_razu.setText(QCoreApplication.translate("MainWindow", u"dodaj od razu wynajmuj\u0105cych", None))
     # retranslateUi
 
