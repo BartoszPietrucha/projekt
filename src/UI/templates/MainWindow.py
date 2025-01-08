@@ -492,6 +492,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_13.addWidget(self.bt_zapisz_dane)
 
+        self.bt_cofnij = QPushButton(self.frame_13)
+        self.bt_cofnij.setObjectName(u"bt_cofnij")
+
+        self.verticalLayout_13.addWidget(self.bt_cofnij)
+
         self.bt_resident_add_photos = QPushButton(self.frame_13)
         self.bt_resident_add_photos.setObjectName(u"bt_resident_add_photos")
 
@@ -521,7 +526,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_14.setObjectName(u"verticalLayout_14")
         self.frame_23 = QFrame(self.frame_22)
         self.frame_23.setObjectName(u"frame_23")
-        self.frame_23.setMinimumSize(QSize(400, 200))
+        self.frame_23.setMinimumSize(QSize(0, 0))
         self.frame_23.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_23.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_12 = QHBoxLayout(self.frame_23)
@@ -544,6 +549,13 @@ class Ui_MainWindow(object):
         self.frame_28.setObjectName(u"frame_28")
         self.frame_28.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_28.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_16 = QHBoxLayout(self.frame_28)
+        self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
+        self.l_resident_photo2 = QLabel(self.frame_28)
+        self.l_resident_photo2.setObjectName(u"l_resident_photo2")
+
+        self.horizontalLayout_16.addWidget(self.l_resident_photo2)
+
 
         self.horizontalLayout_12.addWidget(self.frame_28)
 
@@ -563,102 +575,26 @@ class Ui_MainWindow(object):
         self.frame_24.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_14 = QHBoxLayout(self.frame_24)
         self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
-        self.frame_29 = QFrame(self.frame_24)
-        self.frame_29.setObjectName(u"frame_29")
-        self.frame_29.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_29.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_15 = QVBoxLayout(self.frame_29)
-        self.verticalLayout_15.setObjectName(u"verticalLayout_15")
-        self.label_22 = QLabel(self.frame_29)
-        self.label_22.setObjectName(u"label_22")
-
-        self.verticalLayout_15.addWidget(self.label_22)
-
-        self.label_23 = QLabel(self.frame_29)
-        self.label_23.setObjectName(u"label_23")
-
-        self.verticalLayout_15.addWidget(self.label_23)
-
-        self.label_24 = QLabel(self.frame_29)
-        self.label_24.setObjectName(u"label_24")
-
-        self.verticalLayout_15.addWidget(self.label_24)
-
-
-        self.horizontalLayout_14.addWidget(self.frame_29)
-
-        self.frame_30 = QFrame(self.frame_24)
-        self.frame_30.setObjectName(u"frame_30")
-        self.frame_30.setMaximumSize(QSize(150, 16777215))
-        self.frame_30.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_30.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_16 = QVBoxLayout(self.frame_30)
-        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
-        self.l_resident_name = QLineEdit(self.frame_30)
-        self.l_resident_name.setObjectName(u"l_resident_name")
-
-        self.verticalLayout_16.addWidget(self.l_resident_name)
-
-        self.l_resident_surname = QLineEdit(self.frame_30)
-        self.l_resident_surname.setObjectName(u"l_resident_surname")
-
-        self.verticalLayout_16.addWidget(self.l_resident_surname)
-
-        self.l_resident_city = QLineEdit(self.frame_30)
-        self.l_resident_city.setObjectName(u"l_resident_city")
-
-        self.verticalLayout_16.addWidget(self.l_resident_city)
-
-
-        self.horizontalLayout_14.addWidget(self.frame_30)
-
-        self.frame_32 = QFrame(self.frame_24)
-        self.frame_32.setObjectName(u"frame_32")
-        self.frame_32.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_32.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_17 = QVBoxLayout(self.frame_32)
-        self.verticalLayout_17.setObjectName(u"verticalLayout_17")
-        self.label_25 = QLabel(self.frame_32)
-        self.label_25.setObjectName(u"label_25")
-
-        self.verticalLayout_17.addWidget(self.label_25)
-
-        self.label_26 = QLabel(self.frame_32)
-        self.label_26.setObjectName(u"label_26")
-
-        self.verticalLayout_17.addWidget(self.label_26)
-
-        self.label_27 = QLabel(self.frame_32)
-        self.label_27.setObjectName(u"label_27")
-
-        self.verticalLayout_17.addWidget(self.label_27)
-
-
-        self.horizontalLayout_14.addWidget(self.frame_32)
-
         self.frame_31 = QFrame(self.frame_24)
         self.frame_31.setObjectName(u"frame_31")
         self.frame_31.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_31.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_18 = QVBoxLayout(self.frame_31)
-        self.verticalLayout_18.setObjectName(u"verticalLayout_18")
-        self.l_resident_street = QLineEdit(self.frame_31)
-        self.l_resident_street.setObjectName(u"l_resident_street")
-
-        self.verticalLayout_18.addWidget(self.l_resident_street)
-
-        self.l_resident_number_app = QLineEdit(self.frame_31)
-        self.l_resident_number_app.setObjectName(u"l_resident_number_app")
-
-        self.verticalLayout_18.addWidget(self.l_resident_number_app)
-
-        self.l_resident_number2 = QLineEdit(self.frame_31)
-        self.l_resident_number2.setObjectName(u"l_resident_number2")
-
-        self.verticalLayout_18.addWidget(self.l_resident_number2)
-
 
         self.horizontalLayout_14.addWidget(self.frame_31)
+
+        self.frame_30 = QFrame(self.frame_24)
+        self.frame_30.setObjectName(u"frame_30")
+        self.frame_30.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_30.setFrameShadow(QFrame.Shadow.Raised)
+
+        self.horizontalLayout_14.addWidget(self.frame_30)
+
+        self.frame_29 = QFrame(self.frame_24)
+        self.frame_29.setObjectName(u"frame_29")
+        self.frame_29.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_29.setFrameShadow(QFrame.Shadow.Raised)
+
+        self.horizontalLayout_14.addWidget(self.frame_29)
 
 
         self.verticalLayout_14.addWidget(self.frame_24)
@@ -669,68 +605,26 @@ class Ui_MainWindow(object):
         self.frame_25.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_15 = QHBoxLayout(self.frame_25)
         self.horizontalLayout_15.setObjectName(u"horizontalLayout_15")
+        self.frame_32 = QFrame(self.frame_25)
+        self.frame_32.setObjectName(u"frame_32")
+        self.frame_32.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_32.setFrameShadow(QFrame.Shadow.Raised)
+
+        self.horizontalLayout_15.addWidget(self.frame_32)
+
+        self.frame_34 = QFrame(self.frame_25)
+        self.frame_34.setObjectName(u"frame_34")
+        self.frame_34.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_34.setFrameShadow(QFrame.Shadow.Raised)
+
+        self.horizontalLayout_15.addWidget(self.frame_34)
+
         self.frame_33 = QFrame(self.frame_25)
         self.frame_33.setObjectName(u"frame_33")
         self.frame_33.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_33.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_19 = QVBoxLayout(self.frame_33)
-        self.verticalLayout_19.setObjectName(u"verticalLayout_19")
-        self.label_28 = QLabel(self.frame_33)
-        self.label_28.setObjectName(u"label_28")
-
-        self.verticalLayout_19.addWidget(self.label_28)
-
-        self.label_30 = QLabel(self.frame_33)
-        self.label_30.setObjectName(u"label_30")
-
-        self.verticalLayout_19.addWidget(self.label_30)
-
-        self.label_29 = QLabel(self.frame_33)
-        self.label_29.setObjectName(u"label_29")
-
-        self.verticalLayout_19.addWidget(self.label_29)
-
 
         self.horizontalLayout_15.addWidget(self.frame_33)
-
-        self.frame_35 = QFrame(self.frame_25)
-        self.frame_35.setObjectName(u"frame_35")
-        self.frame_35.setMaximumSize(QSize(250, 16777215))
-        self.frame_35.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_35.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_20 = QVBoxLayout(self.frame_35)
-        self.verticalLayout_20.setObjectName(u"verticalLayout_20")
-        self.l_resident_phone = QLineEdit(self.frame_35)
-        self.l_resident_phone.setObjectName(u"l_resident_phone")
-
-        self.verticalLayout_20.addWidget(self.l_resident_phone)
-
-        self.l_resident_email = QLineEdit(self.frame_35)
-        self.l_resident_email.setObjectName(u"l_resident_email")
-
-        self.verticalLayout_20.addWidget(self.l_resident_email)
-
-        self.l_resident_addres = QLineEdit(self.frame_35)
-        self.l_resident_addres.setObjectName(u"l_resident_addres")
-
-        self.verticalLayout_20.addWidget(self.l_resident_addres)
-
-
-        self.horizontalLayout_15.addWidget(self.frame_35)
-
-        self.frame_37 = QFrame(self.frame_25)
-        self.frame_37.setObjectName(u"frame_37")
-        self.frame_37.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_37.setFrameShadow(QFrame.Shadow.Raised)
-
-        self.horizontalLayout_15.addWidget(self.frame_37)
-
-        self.frame_36 = QFrame(self.frame_25)
-        self.frame_36.setObjectName(u"frame_36")
-        self.frame_36.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_36.setFrameShadow(QFrame.Shadow.Raised)
-
-        self.horizontalLayout_15.addWidget(self.frame_36)
 
 
         self.verticalLayout_14.addWidget(self.frame_25)
@@ -762,7 +656,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -806,17 +700,10 @@ class Ui_MainWindow(object):
         self.cb_osoba_wc.setItemText(1, QCoreApplication.translate("MainWindow", u"nie", None))
 
         self.bt_zapisz_dane.setText(QCoreApplication.translate("MainWindow", u"zapisz dane", None))
+        self.bt_cofnij.setText(QCoreApplication.translate("MainWindow", u"cofnij", None))
         self.bt_resident_add_photos.setText(QCoreApplication.translate("MainWindow", u"dodaj zdj\u0119cia mieszkania", None))
         self.bt_dodaj_najemcow.setText(QCoreApplication.translate("MainWindow", u"dodaj najemc\u00f3w", None))
         self.l_resident_photo.setText(QCoreApplication.translate("MainWindow", u"zdjecie", None))
-        self.label_22.setText(QCoreApplication.translate("MainWindow", u"Imi\u0119", None))
-        self.label_23.setText(QCoreApplication.translate("MainWindow", u"Nazwisko", None))
-        self.label_24.setText(QCoreApplication.translate("MainWindow", u"miasto", None))
-        self.label_25.setText(QCoreApplication.translate("MainWindow", u"ulica", None))
-        self.label_26.setText(QCoreApplication.translate("MainWindow", u"numer budynku", None))
-        self.label_27.setText(QCoreApplication.translate("MainWindow", u"numer lokalu", None))
-        self.label_28.setText(QCoreApplication.translate("MainWindow", u"telefon", None))
-        self.label_30.setText(QCoreApplication.translate("MainWindow", u"email", None))
-        self.label_29.setText(QCoreApplication.translate("MainWindow", u"adres pocztowy", None))
+        self.l_resident_photo2.setText(QCoreApplication.translate("MainWindow", u"zdjecie2", None))
     # retranslateUi
 

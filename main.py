@@ -10,6 +10,8 @@ import base64
 
 
 #dodawanie mieszkania
+#dodanie zdjec mieszkania
+#dodanie residenta
 
 #dodawanie zdjęć
 #dodanie zdjec mieszkań na strone startową
@@ -251,7 +253,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def log_out(self):
 
-        self.db_session.close()
+        
         self.hide()
 
         
@@ -273,7 +275,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.current_user: Users = None
         
 
-
+        self.db_session.close()
         self.loginpage.show()
 
 
@@ -325,7 +327,7 @@ class LoginPage(QWidget, Ui_Form):
                     print(self.mainwindow.current_user)
                     print(type(self.mainwindow.current_user))
                     print(self.mainwindow.userr_id)
-                    self.stackedWidget.setCurrentWidget(self.mainwindow.page_3)
+                    self.mainwindow.stackedWidget.setCurrentWidget(self.mainwindow.page_3)
                     self.mainwindow.show()
                 else:
                     print("błędne hasło")
