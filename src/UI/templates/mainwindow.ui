@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>804</width>
+    <height>637</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -91,7 +91,7 @@
           <string notr="true">background-color: #92a8d1;</string>
          </property>
          <property name="currentIndex">
-          <number>5</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -471,13 +471,13 @@
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_6">
                     <item>
-                     <widget class="QLineEdit" name="l_miasto"/>
+                     <widget class="QLineEdit" name="le_miasto"/>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="l_ulica"/>
+                     <widget class="QLineEdit" name="le_ulica"/>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="l_adres_pocz"/>
+                     <widget class="QLineEdit" name="le_adres_pocz"/>
                     </item>
                    </layout>
                   </widget>
@@ -525,13 +525,13 @@
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_8">
                     <item>
-                     <widget class="QLineEdit" name="l_numer_budy"/>
+                     <widget class="QLineEdit" name="le_numer_budy"/>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="l_numer_lok"/>
+                     <widget class="QLineEdit" name="le_numer_lok"/>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="l_metraz"/>
+                     <widget class="QLineEdit" name="le_metraz"/>
                     </item>
                    </layout>
                   </widget>
@@ -597,13 +597,13 @@
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_10">
                     <item>
-                     <widget class="QLineEdit" name="l_ilosc_pokoi"/>
+                     <widget class="QLineEdit" name="le_ilosc_pokoi"/>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="l_wlasciciel"/>
+                     <widget class="QLineEdit" name="le_wlasciciel"/>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="l_stan"/>
+                     <widget class="QLineEdit" name="le_stan"/>
                     </item>
                    </layout>
                   </widget>
@@ -651,13 +651,24 @@
                    </property>
                    <layout class="QVBoxLayout" name="verticalLayout_12">
                     <item>
-                     <widget class="QComboBox" name="cb_osoba_wc"/>
+                     <widget class="QComboBox" name="cb_osoba_wc">
+                      <item>
+                       <property name="text">
+                        <string>tak</string>
+                       </property>
+                      </item>
+                      <item>
+                       <property name="text">
+                        <string>nie</string>
+                       </property>
+                      </item>
+                     </widget>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="l_cena"/>
+                     <widget class="QLineEdit" name="le_cena"/>
                     </item>
                     <item>
-                     <widget class="QLineEdit" name="l_opis"/>
+                     <widget class="QLineEdit" name="le_opis"/>
                     </item>
                    </layout>
                   </widget>
@@ -1008,7 +1019,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>804</width>
      <height>26</height>
     </rect>
    </property>

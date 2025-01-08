@@ -28,7 +28,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.setupUi(self)
         self.db_session = Session() ################################# 2 raz
         self.userr_id = None
-        self.current_user: Users = None
+        self.current_user: Users
         self.loginpage = LoginPage(self)
         self.loginpage.show()
         self.l_photos.setScaledContents(True)
@@ -52,6 +52,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.bt_wyloguj.clicked.connect(self.log_out)
         self.bt_kontouploadphoto.clicked.connect(self.upload_photo)
 
+        self.bt_zapisz_dane.clicked.connect(self.dodaj_mieszkanie)
+
         #kursor na reke
         self.l_plus.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.l_plus.mousePressEvent = self.on_l_plus_clicked
@@ -59,6 +61,63 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.l_plik.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.l_plik.mousePressEvent = self.on_l_plik_clicked
 
+
+    ## dodanie nowego mieszkania
+
+    def dodaj_mieszkanie(self):
+        if not all([self.le_miasto, self.le_ulica, self.le_adres_pocz, self.le_numer_budy, self.le_numer_lok, self.le_metraz, self.le_ilosc_pokoi
+                    , self.le_wlasciciel, self.le_stan, self.cb_osoba_wc, self.le_cena]):
+            print("Wszystkie pola muszą być wypełnione!")
+            return
+
+        #if not self.current_user:
+        #    print("Użytkownik nie jest zalogowany!")
+        #return
+    
+        try:
+            new_apartment = Apartments(user_id = self.userr_id)
+
+        
+            new_info = Info(
+                apartment=new_apartment,  # Przypisanie mieszkania
+                miasto=self.le_miasto.text(),
+                ulica=self.le_ulica.text(),
+                adres_pocztowy=self.le_adres_pocz.text(),
+                numer_budynku=int(self.le_numer_budy.text()),
+                numer_lokalu=int(self.le_numer_lok.text()) if self.le_numer_lok.text() else None,
+                metraz=int(self.le_metraz.text()),
+                pokoje=int(self.le_ilosc_pokoi.text()),
+                wlasciciel=self.le_wlasciciel.text(),
+                stan=self.le_stan.text() if self.le_stan.text() else None,
+                wc_osobno= True if self.cb_osoba_wc.currentText() == "tak" else False,
+                cena_wynajmu=int(self.le_cena.text())
+        )
+            self.db_session.add(new_apartment)
+            self.db_session.add(new_info)
+
+            # Zapisanie zmian w bazie danych
+            self.db_session.commit()
+            print("Mieszkanie zostało pomyślnie dodane do bazy danych.")
+
+        except Exception as e:
+            # Obsługa błędów i wycofanie transakcji
+            self.db_session.rollback()
+            print(f"Wystąpił błąd podczas dodawania mieszkania: {e}")
+        #le_opi
+        
+        
+        #new_user.firstname = self.le_firstname.text()
+        
+        
+        
+        
+        #    self.db_session.add(new_user)
+        #    self.db_session.commit()
+        #    print("Użytkownik został pomyślnie dodany do bazy danych.")
+        #except Exception as e:
+        #    self.db_session.rollback()
+        #    print(f"Wystąpił błąd podczas dodawania użytkowania: {e}")
+        #    self.db_session.close()
 
 
     def on_l_plus_clicked(self, event: QMouseEvent):

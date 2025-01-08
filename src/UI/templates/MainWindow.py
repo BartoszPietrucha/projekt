@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(800, 600)
+        MainWindow.resize(804, 637)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.horizontalLayout = QHBoxLayout(self.centralwidget)
@@ -304,20 +304,20 @@ class Ui_MainWindow(object):
         self.frame_15.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalLayout_6 = QVBoxLayout(self.frame_15)
         self.verticalLayout_6.setObjectName(u"verticalLayout_6")
-        self.l_miasto = QLineEdit(self.frame_15)
-        self.l_miasto.setObjectName(u"l_miasto")
+        self.le_miasto = QLineEdit(self.frame_15)
+        self.le_miasto.setObjectName(u"le_miasto")
 
-        self.verticalLayout_6.addWidget(self.l_miasto)
+        self.verticalLayout_6.addWidget(self.le_miasto)
 
-        self.l_ulica = QLineEdit(self.frame_15)
-        self.l_ulica.setObjectName(u"l_ulica")
+        self.le_ulica = QLineEdit(self.frame_15)
+        self.le_ulica.setObjectName(u"le_ulica")
 
-        self.verticalLayout_6.addWidget(self.l_ulica)
+        self.verticalLayout_6.addWidget(self.le_ulica)
 
-        self.l_adres_pocz = QLineEdit(self.frame_15)
-        self.l_adres_pocz.setObjectName(u"l_adres_pocz")
+        self.le_adres_pocz = QLineEdit(self.frame_15)
+        self.le_adres_pocz.setObjectName(u"le_adres_pocz")
 
-        self.verticalLayout_6.addWidget(self.l_adres_pocz)
+        self.verticalLayout_6.addWidget(self.le_adres_pocz)
 
 
         self.horizontalLayout_9.addWidget(self.frame_15)
@@ -352,20 +352,20 @@ class Ui_MainWindow(object):
         self.frame_16.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalLayout_8 = QVBoxLayout(self.frame_16)
         self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.l_numer_budy = QLineEdit(self.frame_16)
-        self.l_numer_budy.setObjectName(u"l_numer_budy")
+        self.le_numer_budy = QLineEdit(self.frame_16)
+        self.le_numer_budy.setObjectName(u"le_numer_budy")
 
-        self.verticalLayout_8.addWidget(self.l_numer_budy)
+        self.verticalLayout_8.addWidget(self.le_numer_budy)
 
-        self.l_numer_lok = QLineEdit(self.frame_16)
-        self.l_numer_lok.setObjectName(u"l_numer_lok")
+        self.le_numer_lok = QLineEdit(self.frame_16)
+        self.le_numer_lok.setObjectName(u"le_numer_lok")
 
-        self.verticalLayout_8.addWidget(self.l_numer_lok)
+        self.verticalLayout_8.addWidget(self.le_numer_lok)
 
-        self.l_metraz = QLineEdit(self.frame_16)
-        self.l_metraz.setObjectName(u"l_metraz")
+        self.le_metraz = QLineEdit(self.frame_16)
+        self.le_metraz.setObjectName(u"le_metraz")
 
-        self.verticalLayout_8.addWidget(self.l_metraz)
+        self.verticalLayout_8.addWidget(self.le_metraz)
 
 
         self.horizontalLayout_9.addWidget(self.frame_16)
@@ -410,20 +410,20 @@ class Ui_MainWindow(object):
         self.frame_19.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalLayout_10 = QVBoxLayout(self.frame_19)
         self.verticalLayout_10.setObjectName(u"verticalLayout_10")
-        self.l_ilosc_pokoi = QLineEdit(self.frame_19)
-        self.l_ilosc_pokoi.setObjectName(u"l_ilosc_pokoi")
+        self.le_ilosc_pokoi = QLineEdit(self.frame_19)
+        self.le_ilosc_pokoi.setObjectName(u"le_ilosc_pokoi")
 
-        self.verticalLayout_10.addWidget(self.l_ilosc_pokoi)
+        self.verticalLayout_10.addWidget(self.le_ilosc_pokoi)
 
-        self.l_wlasciciel = QLineEdit(self.frame_19)
-        self.l_wlasciciel.setObjectName(u"l_wlasciciel")
+        self.le_wlasciciel = QLineEdit(self.frame_19)
+        self.le_wlasciciel.setObjectName(u"le_wlasciciel")
 
-        self.verticalLayout_10.addWidget(self.l_wlasciciel)
+        self.verticalLayout_10.addWidget(self.le_wlasciciel)
 
-        self.l_stan = QLineEdit(self.frame_19)
-        self.l_stan.setObjectName(u"l_stan")
+        self.le_stan = QLineEdit(self.frame_19)
+        self.le_stan.setObjectName(u"le_stan")
 
-        self.verticalLayout_10.addWidget(self.l_stan)
+        self.verticalLayout_10.addWidget(self.le_stan)
 
 
         self.horizontalLayout_10.addWidget(self.frame_19)
@@ -459,19 +459,21 @@ class Ui_MainWindow(object):
         self.verticalLayout_12 = QVBoxLayout(self.frame_21)
         self.verticalLayout_12.setObjectName(u"verticalLayout_12")
         self.cb_osoba_wc = QComboBox(self.frame_21)
+        self.cb_osoba_wc.addItem("")
+        self.cb_osoba_wc.addItem("")
         self.cb_osoba_wc.setObjectName(u"cb_osoba_wc")
 
         self.verticalLayout_12.addWidget(self.cb_osoba_wc)
 
-        self.l_cena = QLineEdit(self.frame_21)
-        self.l_cena.setObjectName(u"l_cena")
+        self.le_cena = QLineEdit(self.frame_21)
+        self.le_cena.setObjectName(u"le_cena")
 
-        self.verticalLayout_12.addWidget(self.l_cena)
+        self.verticalLayout_12.addWidget(self.le_cena)
 
-        self.l_opis = QLineEdit(self.frame_21)
-        self.l_opis.setObjectName(u"l_opis")
+        self.le_opis = QLineEdit(self.frame_21)
+        self.le_opis.setObjectName(u"le_opis")
 
-        self.verticalLayout_12.addWidget(self.l_opis)
+        self.verticalLayout_12.addWidget(self.le_opis)
 
 
         self.horizontalLayout_10.addWidget(self.frame_21)
@@ -752,7 +754,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 800, 26))
+        self.menubar.setGeometry(QRect(0, 0, 804, 26))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -760,7 +762,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(5)
+        self.stackedWidget.setCurrentIndex(3)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -800,6 +802,9 @@ class Ui_MainWindow(object):
         self.label_19.setText(QCoreApplication.translate("MainWindow", u"osobna ubikacja", None))
         self.label_20.setText(QCoreApplication.translate("MainWindow", u"cena wynajmu", None))
         self.label_21.setText(QCoreApplication.translate("MainWindow", u"opis(dodatkowo)", None))
+        self.cb_osoba_wc.setItemText(0, QCoreApplication.translate("MainWindow", u"tak", None))
+        self.cb_osoba_wc.setItemText(1, QCoreApplication.translate("MainWindow", u"nie", None))
+
         self.bt_zapisz_dane.setText(QCoreApplication.translate("MainWindow", u"zapisz dane", None))
         self.bt_resident_add_photos.setText(QCoreApplication.translate("MainWindow", u"dodaj zdj\u0119cia mieszkania", None))
         self.bt_dodaj_najemcow.setText(QCoreApplication.translate("MainWindow", u"dodaj najemc\u00f3w", None))
