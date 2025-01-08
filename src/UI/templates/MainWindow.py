@@ -629,6 +629,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_14.addWidget(self.frame_25)
 
+        self.bt_listamieszkan_wroc = QPushButton(self.frame_22)
+        self.bt_listamieszkan_wroc.setObjectName(u"bt_listamieszkan_wroc")
+
+        self.verticalLayout_14.addWidget(self.bt_listamieszkan_wroc)
+
 
         self.horizontalLayout_11.addWidget(self.frame_22)
 
@@ -751,9 +756,18 @@ class Ui_MainWindow(object):
         self.frame_70.setMaximumSize(QSize(100, 16777215))
         self.frame_70.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_70.setFrameShadow(QFrame.Shadow.Raised)
-        self.bt_edytuj_3 = QPushButton(self.frame_70)
-        self.bt_edytuj_3.setObjectName(u"bt_edytuj_3")
-        self.bt_edytuj_3.setGeometry(QRect(10, 250, 93, 29))
+        self.verticalLayout_31 = QVBoxLayout(self.frame_70)
+        self.verticalLayout_31.setObjectName(u"verticalLayout_31")
+        self.bt_resident_ok = QPushButton(self.frame_70)
+        self.bt_resident_ok.setObjectName(u"bt_resident_ok")
+
+        self.verticalLayout_31.addWidget(self.bt_resident_ok)
+
+        self.bt_resident_wroc = QPushButton(self.frame_70)
+        self.bt_resident_wroc.setObjectName(u"bt_resident_wroc")
+
+        self.verticalLayout_31.addWidget(self.bt_resident_wroc)
+
 
         self.horizontalLayout_32.addWidget(self.frame_70)
 
@@ -778,7 +792,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(5)
+        self.stackedWidget.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -827,6 +841,7 @@ class Ui_MainWindow(object):
         self.bt_dodaj_najemcow.setText(QCoreApplication.translate("MainWindow", u"dodaj najemc\u00f3w", None))
         self.l_resident_photo.setText(QCoreApplication.translate("MainWindow", u"zdjecie", None))
         self.l_resident_photo2.setText(QCoreApplication.translate("MainWindow", u"zdjecie2", None))
+        self.bt_listamieszkan_wroc.setText(QCoreApplication.translate("MainWindow", u"wr\u00f3\u0107", None))
         self.label_43.setText(QCoreApplication.translate("MainWindow", u"firstname", None))
         self.label_44.setText(QCoreApplication.translate("MainWindow", u"surname", None))
         self.label_45.setText(QCoreApplication.translate("MainWindow", u"address", None))
@@ -836,6 +851,7 @@ class Ui_MainWindow(object):
         self.label_48.setText("")
         self.bt_residentuploadphoto.setText(QCoreApplication.translate("MainWindow", u"Wybierz zdj\u0119cie", None))
         self.le_photo_resident.setText(QCoreApplication.translate("MainWindow", u"Zdj\u0119cie", None))
-        self.bt_edytuj_3.setText(QCoreApplication.translate("MainWindow", u"Ok", None))
+        self.bt_resident_ok.setText(QCoreApplication.translate("MainWindow", u"Ok", None))
+        self.bt_resident_wroc.setText(QCoreApplication.translate("MainWindow", u"wr\u00f3\u0107", None))
     # retranslateUi
 

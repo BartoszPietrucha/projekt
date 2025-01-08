@@ -91,7 +91,7 @@
           <string notr="true">background-color: #92a8d1;</string>
          </property>
          <property name="currentIndex">
-          <number>5</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -882,6 +882,13 @@
                 </layout>
                </widget>
               </item>
+              <item>
+               <widget class="QPushButton" name="bt_listamieszkan_wroc">
+                <property name="text">
+                 <string>wróć</string>
+                </property>
+               </widget>
+              </item>
              </layout>
             </widget>
            </item>
@@ -1086,19 +1093,22 @@
              <property name="frameShadow">
               <enum>QFrame::Shadow::Raised</enum>
              </property>
-             <widget class="QPushButton" name="bt_edytuj_3">
-              <property name="geometry">
-               <rect>
-                <x>10</x>
-                <y>250</y>
-                <width>93</width>
-                <height>29</height>
-               </rect>
-              </property>
-              <property name="text">
-               <string>Ok</string>
-              </property>
-             </widget>
+             <layout class="QVBoxLayout" name="verticalLayout_31">
+              <item>
+               <widget class="QPushButton" name="bt_resident_ok">
+                <property name="text">
+                 <string>Ok</string>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QPushButton" name="bt_resident_wroc">
+                <property name="text">
+                 <string>wróć</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </widget>
            </item>
           </layout>

@@ -55,6 +55,15 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.bt_kontouploadphoto.clicked.connect(self.upload_photo)
 
         self.bt_zapisz_dane.clicked.connect(self.dodaj_mieszkanie)
+        self.bt_cofnij.clicked.connect(self.show_page2)
+        #self.bt_resident_add_photos.clicked.connect(self.show_page5)
+        self.bt_dodaj_najemcow.clicked.connect(self.show_page6)
+        self.bt_resident_wroc.clicked.connect(self.show_page4)
+        self.bt_listamieszkan_wroc.clicked.connect(self.show_page4)
+        
+
+
+
 
         #kursor na reke
         self.l_plus.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
@@ -176,6 +185,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def show_page5(self):
         self.stackedWidget.setCurrentWidget(self.page_5)    
 
+    def show_page6(self):
+        self.stackedWidget.setCurrentWidget(self.page_6) 
 
     def show_page(self):
         self.stackedWidget.setCurrentWidget(self.page)
