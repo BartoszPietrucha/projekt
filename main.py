@@ -65,8 +65,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.bt_resident_wroc.clicked.connect(self.show_page4)
         self.bt_listamieszkan_wroc.clicked.connect(self.show_page4)
         self.bt_nastepna_strona.clicked.connect(self.show_page7)
-        self.bt_right_add.clicked.connect(self.next_image2())
-        self.bt_left_add.clicked.connect(self.previous_image2())
+        #self.bt_right_add.clicked.connect(self.next_image2())
+        #self.bt_left_add.clicked.connect(self.previous_image2())
 
 
 
@@ -82,46 +82,46 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     ## dodanie nowego mieszkania
 
-    # def upload_photos(self):
-    #     file_paths, _ = QFileDialog.getOpenFileNames(self, "Wybierz zdjęcia", "", "Images (*.png *.jpg *.jpeg *.bmp)")
+    def upload_photos(self):
+       file_paths, _ = QFileDialog.getOpenFileNames(self, "Wybierz zdjęcia", "", "Images (*.png *.jpg *.jpeg *.bmp)")
         
-    #     if file_paths:
+       if file_paths:
             
-    #         normalized_paths = [os.path.normpath(path) for path in file_paths]
+            normalized_paths = [os.path.normpath(path) for path in file_paths]
         
-    #         # Dodanie nowych zdjęć do listy
-    #         self.image_paths.extend(normalized_paths)
-    #         self.show_image2(self.image_paths[self.current_image_index2])
+            # Dodanie nowych zdjęć do listy
+            self.image_paths.extend(normalized_paths)
+            self.show_image2(self.image_paths[self.current_image_index2])
 
-    #         print(self.image_paths)
+            print(self.image_paths)
 
-    # def show_image2(self, image_paths):
-    #     if image_paths:
+    def show_image2(self, image_paths):
+        if image_paths:
 
-    #         image_path = image_paths[self.current_image_index2]
+            image_path = image_paths[self.current_image_index2]
             
-    #         print(image_path)
-    #         if os.path.exists(image_path):
-    #             image = QImage(image_path)
-    #             pixmap = QPixmap(image)
-    #             self.l_photos_add.setPixmap(pixmap)
-    #             self.l_photos_add.setScaledContents(True)
-    #         else:
-    #             print(f"Plik {image_path} nie istnieje")
+            print(image_path)
+            if os.path.exists(image_path):
+                image = QImage(image_path)
+                pixmap = QPixmap(image)
+                self.l_photos_add.setPixmap(pixmap)
+                self.l_photos_add.setScaledContents(True)
+            else:
+                print(f"Plik {image_path} nie istnieje")
 
-    # def next_image2(self):
-    #     if len(self.image_paths) == 0:
-    #         print("Brak zdjęć do wyświetlenia!")
-    #     return
-    #     self.current_image_index2 = (self.current_image_index2 + 1) % len(self.image_paths)
-    #     self.show_image2(self.image_paths)
+    def next_image2(self):
+        if len(self.image_paths) == 0:
+            print("Brak zdjęć do wyświetlenia!")
+        return
+        self.current_image_index2 = (self.current_image_index2 + 1) % len(self.image_paths)
+        self.show_image2(self.image_paths)
 
-    # def previous_image2(self):
-    #     if len(self.image_paths) == 0:
-    #         print("Brak zdjęć do wyświetlenia!")
-    #     return
-    #     self.current_image_index2 = (self.current_image_index2 - 1) % len(self.image_paths)
-    #     self.show_image2(self.image_paths)
+    def previous_image2(self):
+        if len(self.image_paths) == 0:
+            print("Brak zdjęć do wyświetlenia!")
+        return
+        self.current_image_index2 = (self.current_image_index2 - 1) % len(self.image_paths)
+        self.show_image2(self.image_paths)
 
     def dodaj_mieszkanie(self):
         if not all([self.le_miasto, self.le_ulica, self.le_adres_pocz, self.le_numer_budy, self.le_numer_lok, self.le_metraz, self.le_ilosc_pokoi
@@ -190,6 +190,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def on_l_plus_add(self, event: QMouseEvent):
         if event.button() == Qt.MouseButton.LeftButton:
             self.upload_photos()
+            self.show_image2(self.images[self.current_image_index2])
             
 
     def reset_timer(self):
