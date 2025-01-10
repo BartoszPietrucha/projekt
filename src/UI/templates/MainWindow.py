@@ -792,6 +792,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_35.setObjectName(u"horizontalLayout_35")
         self.l_photos_add = QLabel(self.frame_74)
         self.l_photos_add.setObjectName(u"l_photos_add")
+        self.l_photos_add.setMaximumSize(QSize(500, 400))
 
         self.horizontalLayout_35.addWidget(self.l_photos_add)
 

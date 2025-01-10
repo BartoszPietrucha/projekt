@@ -44,6 +44,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.show_image(self.images[self.current_image_index])
         self.stackedWidget.setCurrentWidget(self.page_3)
 
+
+        
+
         self.timer = QTimer(self)
         self.timer.timeout.connect(self.next_image)
         self.timer.start(5000)
@@ -65,8 +68,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.bt_resident_wroc.clicked.connect(self.show_page4)
         self.bt_listamieszkan_wroc.clicked.connect(self.show_page4)
         self.bt_nastepna_strona.clicked.connect(self.show_page7)
-        #self.bt_right_add.clicked.connect(self.next_image2())
-        #self.bt_left_add.clicked.connect(self.previous_image2())
+        self.bt_right_add.clicked.connect(self.next_image2())
+        self.bt_left_add.clicked.connect(self.previous_image2())
 
 
 
@@ -91,7 +94,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         
             # Dodanie nowych zdjęć do listy
             self.image_paths.extend(normalized_paths)
-            self.show_image2(self.image_paths[self.current_image_index2])
+            self.show_image2(self.image_paths)
 
             print(self.image_paths)
 
@@ -105,21 +108,21 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 image = QImage(image_path)
                 pixmap = QPixmap(image)
                 self.l_photos_add.setPixmap(pixmap)
-                self.l_photos_add.setScaledContents(True)
+                #self.l_photos_add.setScaledContents(True)
             else:
                 print(f"Plik {image_path} nie istnieje")
 
     def next_image2(self):
         if len(self.image_paths) == 0:
             print("Brak zdjęć do wyświetlenia!")
-        return
+            return
         self.current_image_index2 = (self.current_image_index2 + 1) % len(self.image_paths)
         self.show_image2(self.image_paths)
 
     def previous_image2(self):
         if len(self.image_paths) == 0:
             print("Brak zdjęć do wyświetlenia!")
-        return
+            return
         self.current_image_index2 = (self.current_image_index2 - 1) % len(self.image_paths)
         self.show_image2(self.image_paths)
 
@@ -190,7 +193,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def on_l_plus_add(self, event: QMouseEvent):
         if event.button() == Qt.MouseButton.LeftButton:
             self.upload_photos()
-            self.show_image2(self.images[self.current_image_index2])
+            
             
 
     def reset_timer(self):

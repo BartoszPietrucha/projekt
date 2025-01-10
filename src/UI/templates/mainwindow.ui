@@ -1143,6 +1143,12 @@
                    <layout class="QHBoxLayout" name="horizontalLayout_35">
                     <item>
                      <widget class="QLabel" name="l_photos_add">
+                      <property name="maximumSize">
+                       <size>
+                        <width>500</width>
+                        <height>400</height>
+                       </size>
+                      </property>
                       <property name="text">
                        <string>zdjęcia</string>
                       </property>
