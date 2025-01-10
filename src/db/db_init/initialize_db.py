@@ -65,7 +65,7 @@ class Photos(Base):
 
     photo_id = Column(Integer, primary_key=True)
     apartment_id = Column(Integer, ForeignKey("apartments.apartment_id"), nullable=False)
-    photo_b64 = Column(String(),nullable=False)
+    photo_b64 = Column(String(),nullable=True)
 
     apartment = relationship("Apartments", back_populates="photos")
 

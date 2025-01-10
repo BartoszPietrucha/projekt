@@ -4,12 +4,12 @@ from src.UI.templates.MainWindow import Ui_MainWindow
 from PySide6.QtGui import QPixmap, QImage, QCursor, QMouseEvent
 from PySide6.QtCore import QTimer, QByteArray, Qt
 import os
-from src.db.db_init.initialize_db import UserData, Session, Users, Apartments, Info
+from src.db.db_init.initialize_db import UserData, Session, Users, Apartments, Info, Photos
 import base64
 
 
 
-#dodawanie zdjec mieszkania
+
 #dodanie residenta
 
 #obejrzenie zdjecia jednego mieszkania
@@ -61,7 +61,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.bt_wyloguj.clicked.connect(self.log_out)
         self.bt_kontouploadphoto.clicked.connect(self.upload_photo)
 
-        #self.bt_zapisz_dane.clicked.connect(self.dodaj_mieszkanie)
+        self.bt_zapisz_dane.clicked.connect(self.dodaj_mieszkanie)
         self.bt_cofnij.clicked.connect(self.show_page2)
         #self.bt_resident_add_photos.clicked.connect(self.show_page5)
         #self.bt_dodaj_najemcow.clicked.connect(self.show_page6)
@@ -83,7 +83,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.l_photos_add.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
         self.l_photos_add.mousePressEvent = self.on_l_plus_add
 
+
+
+    ########################################################################################################
     ## dodanie nowego mieszkania
+    ########################################################################################################
+
+
 
     def upload_photos(self):
        file_paths, _ = QFileDialog.getOpenFileNames(self, "Wybierz zdjęcia", "", "Images (*.png *.jpg *.jpeg *.bmp)")
@@ -129,13 +135,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     def dodaj_mieszkanie(self):
         if not all([self.le_miasto, self.le_ulica, self.le_adres_pocz, self.le_numer_budy, self.le_numer_lok, self.le_metraz, self.le_ilosc_pokoi
                     , self.le_wlasciciel, self.le_stan, self.cb_osoba_wc, self.le_cena]):
-            print("Wszystkie pola muszą być wypełnione!")
+            print("Wszystkie pola muszą być wypełnione dotyczące mieszkania!")
             return
 
-        #if not self.current_user:
-        #    print("Użytkownik nie jest zalogowany!")
-        #return
-    
         try:
             new_apartment = Apartments(user_id = self.userr_id)
 
@@ -165,22 +167,48 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             # Obsługa błędów i wycofanie transakcji
             self.db_session.rollback()
             print(f"Wystąpił błąd podczas dodawania mieszkania: {e}")
-        #le_opi
         
-        
-        #new_user.firstname = self.le_firstname.text()
-        
-        
-        
-        
-        #    self.db_session.add(new_user)
-        #    self.db_session.commit()
-        #    print("Użytkownik został pomyślnie dodany do bazy danych.")
-        #except Exception as e:
-        #    self.db_session.rollback()
-        #    print(f"Wystąpił błąd podczas dodawania użytkowania: {e}")
-        #    self.db_session.close()
+        if len(self.image_paths) == 0:
+            print("zostanie dodany defaultowy obrazek")
+            self.photo_b64 = None
 
+            try:
+                new_photo = Photos(
+                    apartment = new_apartment,
+                    photo_b64 = self.photo_b64
+                )
+                self.db_session.add(new_photo)
+
+                self.db_session.commit()
+                print("zdjecie zostalo dodane pomyslnie")
+
+            except Exception as e:
+                self.db_session.rollback()
+                print(f"nie zostalo dodane zdjecie: {e}")
+
+        else:
+            for i in self.image_paths:
+                with open(i, "rb") as file:
+                    image_data = file.read()
+                    self.photo_b64 = base64.b64encode(image_data).decode('utf-8')  # Przechowaj w base64
+
+                try:
+                    new_photo = Photos(
+                        apartment = new_apartment,
+                        photo_b64 = self.photo_b64
+                    )
+
+                    self.db_session.add(new_photo)
+
+                    self.db_session.commit()
+                    print("zdjecie zostalo dodane pomyslnie")
+
+                except Exception as e:
+                    self.db_session.rollback()
+                    print(f"cos poszlo nei tak przy dodawaniu zdjecia: {e}")
+
+
+        
 
     def on_l_plus_clicked(self, event: QMouseEvent):
         if event.button() == Qt.MouseButton.LeftButton:

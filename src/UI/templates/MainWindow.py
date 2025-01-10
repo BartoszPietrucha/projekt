@@ -793,6 +793,8 @@ class Ui_MainWindow(object):
         self.l_photos_add = QLabel(self.frame_74)
         self.l_photos_add.setObjectName(u"l_photos_add")
         self.l_photos_add.setMaximumSize(QSize(500, 400))
+        self.l_photos_add.setPixmap(QPixmap(u"../domek.jpg"))
+        self.l_photos_add.setScaledContents(True)
 
         self.horizontalLayout_35.addWidget(self.l_photos_add)
 
@@ -914,7 +916,7 @@ class Ui_MainWindow(object):
         self.bt_resident_ok.setText(QCoreApplication.translate("MainWindow", u"Ok", None))
         self.bt_resident_wroc.setText(QCoreApplication.translate("MainWindow", u"wr\u00f3\u0107", None))
         self.bt_left_add.setText(QCoreApplication.translate("MainWindow", u"<", None))
-        self.l_photos_add.setText(QCoreApplication.translate("MainWindow", u"zdj\u0119cia", None))
+        self.l_photos_add.setText("")
         self.bt_right_add.setText(QCoreApplication.translate("MainWindow", u">", None))
         self.bt_zapisz_dane.setText(QCoreApplication.translate("MainWindow", u"zapisz mieszkanie", None))
         self.bt_usun_zdjecie.setText(QCoreApplication.translate("MainWindow", u"usu\u0144 zdj\u0119cie, kt\u00f3re widzisz", None))

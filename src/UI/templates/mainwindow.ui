@@ -1150,7 +1150,13 @@
                        </size>
                       </property>
                       <property name="text">
-                       <string>zdjęcia</string>
+                       <string/>
+                      </property>
+                      <property name="pixmap">
+                       <pixmap>../domek.jpg</pixmap>
+                      </property>
+                      <property name="scaledContents">
+                       <bool>true</bool>
                       </property>
                      </widget>
                     </item>
