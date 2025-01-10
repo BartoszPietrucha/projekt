@@ -68,8 +68,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.bt_resident_wroc.clicked.connect(self.show_page4)
         self.bt_listamieszkan_wroc.clicked.connect(self.show_page4)
         self.bt_nastepna_strona.clicked.connect(self.show_page7)
-        self.bt_right_add.clicked.connect(self.next_image2())
-        self.bt_left_add.clicked.connect(self.previous_image2())
+        self.bt_right_add.clicked.connect(self.next_image2)
+        self.bt_left_add.clicked.connect(self.previous_image2)
 
 
 
@@ -108,7 +108,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                 image = QImage(image_path)
                 pixmap = QPixmap(image)
                 self.l_photos_add.setPixmap(pixmap)
-                #self.l_photos_add.setScaledContents(True)
+                self.l_photos_add.setScaledContents(True)
             else:
                 print(f"Plik {image_path} nie istnieje")
 
