@@ -1,5 +1,5 @@
 from sqlalchemy.orm import declarative_base
-from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, Boolean
+from sqlalchemy import create_engine, Column, Integer, String, ForeignKey, Boolean, func
 from sqlalchemy.orm import relationship
 #tutaj 2 czesc
 from sqlalchemy.orm import sessionmaker

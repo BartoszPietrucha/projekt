@@ -8,7 +8,7 @@ from src.db.db_init.initialize_db import UserData, Session, Users, Apartments, I
 import base64
 
 
-
+####"C:/Programy/python/projekt/projekt/src/UI/domek.jpg"
 
 #dodanie residenta
 

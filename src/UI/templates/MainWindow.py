@@ -527,10 +527,10 @@ class Ui_MainWindow(object):
         self.frame_26.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_13 = QHBoxLayout(self.frame_26)
         self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
-        self.l_resident_photo = QLabel(self.frame_26)
-        self.l_resident_photo.setObjectName(u"l_resident_photo")
+        self.l_appartment_photo1 = QLabel(self.frame_26)
+        self.l_appartment_photo1.setObjectName(u"l_appartment_photo1")
 
-        self.horizontalLayout_13.addWidget(self.l_resident_photo)
+        self.horizontalLayout_13.addWidget(self.l_appartment_photo1)
 
 
         self.horizontalLayout_12.addWidget(self.frame_26)
@@ -541,10 +541,10 @@ class Ui_MainWindow(object):
         self.frame_28.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_16 = QHBoxLayout(self.frame_28)
         self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
-        self.l_resident_photo2 = QLabel(self.frame_28)
-        self.l_resident_photo2.setObjectName(u"l_resident_photo2")
+        self.l_appartment_photo2 = QLabel(self.frame_28)
+        self.l_appartment_photo2.setObjectName(u"l_appartment_photo2")
 
-        self.horizontalLayout_16.addWidget(self.l_resident_photo2)
+        self.horizontalLayout_16.addWidget(self.l_appartment_photo2)
 
 
         self.horizontalLayout_12.addWidget(self.frame_28)
@@ -786,6 +786,7 @@ class Ui_MainWindow(object):
 
         self.frame_74 = QFrame(self.frame_72)
         self.frame_74.setObjectName(u"frame_74")
+        self.frame_74.setStyleSheet(u"")
         self.frame_74.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_74.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_35 = QHBoxLayout(self.frame_74)
@@ -793,6 +794,7 @@ class Ui_MainWindow(object):
         self.l_photos_add = QLabel(self.frame_74)
         self.l_photos_add.setObjectName(u"l_photos_add")
         self.l_photos_add.setMaximumSize(QSize(500, 400))
+        self.l_photos_add.setStyleSheet(u"")
         self.l_photos_add.setPixmap(QPixmap(u"../domek.jpg"))
         self.l_photos_add.setScaledContents(True)
 
@@ -856,7 +858,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(6)
+        self.stackedWidget.setCurrentIndex(4)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -901,8 +903,8 @@ class Ui_MainWindow(object):
 
         self.bt_nastepna_strona.setText(QCoreApplication.translate("MainWindow", u"nast\u0119pna strona", None))
         self.bt_cofnij.setText(QCoreApplication.translate("MainWindow", u"cofnij", None))
-        self.l_resident_photo.setText(QCoreApplication.translate("MainWindow", u"zdjecie", None))
-        self.l_resident_photo2.setText(QCoreApplication.translate("MainWindow", u"zdjecie2", None))
+        self.l_appartment_photo1.setText(QCoreApplication.translate("MainWindow", u"zdjecie", None))
+        self.l_appartment_photo2.setText(QCoreApplication.translate("MainWindow", u"zdjecie2", None))
         self.bt_listamieszkan_wroc.setText(QCoreApplication.translate("MainWindow", u"wr\u00f3\u0107", None))
         self.label_43.setText(QCoreApplication.translate("MainWindow", u"firstname", None))
         self.label_44.setText(QCoreApplication.translate("MainWindow", u"surname", None))

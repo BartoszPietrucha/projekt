@@ -91,7 +91,7 @@
           <string notr="true">background-color: #92a8d1;</string>
          </property>
          <property name="currentIndex">
-          <number>6</number>
+          <number>4</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QHBoxLayout" name="horizontalLayout_4">
@@ -743,7 +743,7 @@
                    </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_13">
                     <item>
-                     <widget class="QLabel" name="l_resident_photo">
+                     <widget class="QLabel" name="l_appartment_photo1">
                       <property name="text">
                        <string>zdjecie</string>
                       </property>
@@ -762,7 +762,7 @@
                    </property>
                    <layout class="QHBoxLayout" name="horizontalLayout_16">
                     <item>
-                     <widget class="QLabel" name="l_resident_photo2">
+                     <widget class="QLabel" name="l_appartment_photo2">
                       <property name="text">
                        <string>zdjecie2</string>
                       </property>
@@ -1134,6 +1134,9 @@
                  </item>
                  <item>
                   <widget class="QFrame" name="frame_74">
+                   <property name="styleSheet">
+                    <string notr="true"/>
+                   </property>
                    <property name="frameShape">
                     <enum>QFrame::Shape::StyledPanel</enum>
                    </property>
@@ -1148,6 +1151,9 @@
                         <width>500</width>
                         <height>400</height>
                        </size>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true"/>
                       </property>
                       <property name="text">
                        <string/>
