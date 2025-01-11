@@ -65,37 +65,45 @@ class Ui_MainWindow(object):
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
         self.frame_4 = QFrame(self.page)
         self.frame_4.setObjectName(u"frame_4")
+        self.frame_4.setMinimumSize(QSize(100, 0))
         self.frame_4.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_4.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalLayout = QVBoxLayout(self.frame_4)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.label = QLabel(self.frame_4)
         self.label.setObjectName(u"label")
+        self.label.setMaximumSize(QSize(16777215, 60))
 
         self.verticalLayout.addWidget(self.label)
 
         self.label_5 = QLabel(self.frame_4)
         self.label_5.setObjectName(u"label_5")
+        self.label_5.setMaximumSize(QSize(16777215, 30))
 
         self.verticalLayout.addWidget(self.label_5)
 
         self.label_6 = QLabel(self.frame_4)
         self.label_6.setObjectName(u"label_6")
+        self.label_6.setMinimumSize(QSize(50, 0))
+        self.label_6.setMaximumSize(QSize(16777215, 60))
 
         self.verticalLayout.addWidget(self.label_6)
 
         self.label_4 = QLabel(self.frame_4)
         self.label_4.setObjectName(u"label_4")
+        self.label_4.setMaximumSize(QSize(16777215, 25))
 
         self.verticalLayout.addWidget(self.label_4)
 
         self.label_2 = QLabel(self.frame_4)
         self.label_2.setObjectName(u"label_2")
+        self.label_2.setMaximumSize(QSize(16777215, 60))
 
         self.verticalLayout.addWidget(self.label_2)
 
         self.label_7 = QLabel(self.frame_4)
         self.label_7.setObjectName(u"label_7")
+        self.label_7.setMaximumSize(QSize(16777215, 30))
 
         self.verticalLayout.addWidget(self.label_7)
 
@@ -104,11 +112,19 @@ class Ui_MainWindow(object):
 
         self.verticalLayout.addWidget(self.label_3)
 
+        self.label_6.raise_()
+        self.label.raise_()
+        self.label_5.raise_()
+        self.label_2.raise_()
+        self.label_7.raise_()
+        self.label_3.raise_()
+        self.label_4.raise_()
 
         self.horizontalLayout_4.addWidget(self.frame_4)
 
         self.frame = QFrame(self.page)
         self.frame.setObjectName(u"frame")
+        self.frame.setMaximumSize(QSize(400, 16777215))
         self.frame.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalLayout_2 = QVBoxLayout(self.frame)
@@ -145,7 +161,8 @@ class Ui_MainWindow(object):
 
         self.frame_6 = QFrame(self.frame)
         self.frame_6.setObjectName(u"frame_6")
-        self.frame_6.setMaximumSize(QSize(16777215, 100))
+        self.frame_6.setMinimumSize(QSize(0, 0))
+        self.frame_6.setMaximumSize(QSize(16777215, 150))
         self.frame_6.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_6.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_6 = QHBoxLayout(self.frame_6)
@@ -157,7 +174,7 @@ class Ui_MainWindow(object):
 
         self.l_kontophoto = QLabel(self.frame_6)
         self.l_kontophoto.setObjectName(u"l_kontophoto")
-        self.l_kontophoto.setMaximumSize(QSize(200, 200))
+        self.l_kontophoto.setMaximumSize(QSize(120, 1666666))
 
         self.horizontalLayout_6.addWidget(self.l_kontophoto)
 
@@ -200,13 +217,10 @@ class Ui_MainWindow(object):
         self.l_plus.setObjectName(u"l_plus")
         self.l_plus.setMinimumSize(QSize(250, 0))
         self.l_plus.setMaximumSize(QSize(16777215, 250))
+        self.l_plus.setPixmap(QPixmap(u"../plusik.png"))
+        self.l_plus.setScaledContents(True)
 
         self.gridLayout.addWidget(self.l_plus, 0, 0, 1, 1)
-
-        self.label_10 = QLabel(self.frame_8)
-        self.label_10.setObjectName(u"label_10")
-
-        self.gridLayout.addWidget(self.label_10, 1, 0, 1, 1)
 
 
         self.horizontalLayout_7.addWidget(self.frame_8)
@@ -223,11 +237,6 @@ class Ui_MainWindow(object):
         self.l_plik.setMaximumSize(QSize(16777215, 250))
 
         self.verticalLayout_3.addWidget(self.l_plik)
-
-        self.label_11 = QLabel(self.frame_9)
-        self.label_11.setObjectName(u"label_11")
-
-        self.verticalLayout_3.addWidget(self.label_11)
 
 
         self.horizontalLayout_7.addWidget(self.frame_9)
@@ -532,7 +541,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
         self.l_appartment_photo1 = QLabel(self.frame_26)
         self.l_appartment_photo1.setObjectName(u"l_appartment_photo1")
-        self.l_appartment_photo1.setMaximumSize(QSize(150, 100))
+        self.l_appartment_photo1.setMaximumSize(QSize(180, 150))
 
         self.horizontalLayout_13.addWidget(self.l_appartment_photo1)
 
@@ -547,7 +556,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
         self.l_appartment_photo2 = QLabel(self.frame_28)
         self.l_appartment_photo2.setObjectName(u"l_appartment_photo2")
-        self.l_appartment_photo2.setMaximumSize(QSize(150, 100))
+        self.l_appartment_photo2.setMaximumSize(QSize(180, 150))
 
         self.horizontalLayout_16.addWidget(self.l_appartment_photo2)
 
@@ -800,7 +809,7 @@ class Ui_MainWindow(object):
         self.l_photos_add.setObjectName(u"l_photos_add")
         self.l_photos_add.setMaximumSize(QSize(500, 400))
         self.l_photos_add.setStyleSheet(u"")
-        self.l_photos_add.setPixmap(QPixmap(u"../domek.jpg"))
+        self.l_photos_add.setPixmap(QPixmap(u"C:/Programy/python/projekt/projekt/src/UI/domek.jpg"))
         self.l_photos_add.setScaledContents(True)
 
         self.horizontalLayout_35.addWidget(self.l_photos_add)
@@ -863,7 +872,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(4)
+        self.stackedWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -885,10 +894,8 @@ class Ui_MainWindow(object):
         self.bt_kontouploadphoto.setText(QCoreApplication.translate("MainWindow", u"Wybierz zdj\u0119cie", None))
         self.l_kontophoto.setText(QCoreApplication.translate("MainWindow", u"Zdj\u0119cie", None))
         self.bt_edytuj.setText(QCoreApplication.translate("MainWindow", u"Edytuj", None))
-        self.l_plus.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Dodaj mieszkanie", None))
+        self.l_plus.setText("")
         self.l_plik.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
-        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Lista mieszka\u0144", None))
         self.bt_left.setText(QCoreApplication.translate("MainWindow", u"<", None))
         self.l_photos.setText(QCoreApplication.translate("MainWindow", u"                                                        zdjecia", None))
         self.bt_right.setText(QCoreApplication.translate("MainWindow", u">", None))

@@ -259,11 +259,13 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                     pixmap.loadFromData(image_data)  # Tworzenie pixmapy z danych
                     label.setPixmap(pixmap)
                     label.setScaledContents(True)  # Skalowanie zawartości w QLabel
+                    label.setCursor(QCursor(Qt.CursorShape.PointingHandCursor))
                 except Exception as e:
                     print(f"Błąd podczas ładowania zdjęcia dla mieszkania ID {apartment.apartment_id}: {e}")
             else:
                 print(f"Mieszkanie ID {apartment.apartment_id} nie ma zdjęcia. Ustawiam domyślny obrazek.")
                 label.setText("Brak zdjęcia")  # Możesz ustawić domyślny obrazek lub tekst
+        
 
             
 
@@ -338,7 +340,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
     
     def show_page2(self):
         self.stackedWidget.setCurrentWidget(self.page_2)
-        path_plus = "C:/Programy/python/projekt/projekt/src/UI/plus.jpg"
+        path_plus = "C:/Programy/python/projekt/projekt/src/UI/plusik.png"
         if os.path.exists(path_plus):
             image = QImage(path_plus)
             pixmap = QPixmap(image)

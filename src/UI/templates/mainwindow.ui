@@ -104,12 +104,18 @@
           <string notr="true">background-color: #92a8d1;</string>
          </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QHBoxLayout" name="horizontalLayout_4">
            <item>
             <widget class="QFrame" name="frame_4">
+             <property name="minimumSize">
+              <size>
+               <width>100</width>
+               <height>0</height>
+              </size>
+             </property>
              <property name="frameShape">
               <enum>QFrame::Shape::StyledPanel</enum>
              </property>
@@ -119,6 +125,12 @@
              <layout class="QVBoxLayout" name="verticalLayout">
               <item>
                <widget class="QLabel" name="label">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>60</height>
+                 </size>
+                </property>
                 <property name="text">
                  <string>username</string>
                 </property>
@@ -126,6 +138,12 @@
               </item>
               <item>
                <widget class="QLabel" name="label_5">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
                 <property name="text">
                  <string>firstname</string>
                 </property>
@@ -133,6 +151,18 @@
               </item>
               <item>
                <widget class="QLabel" name="label_6">
+                <property name="minimumSize">
+                 <size>
+                  <width>50</width>
+                  <height>0</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>60</height>
+                 </size>
+                </property>
                 <property name="text">
                  <string>surname</string>
                 </property>
@@ -140,6 +170,12 @@
               </item>
               <item>
                <widget class="QLabel" name="label_4">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>25</height>
+                 </size>
+                </property>
                 <property name="text">
                  <string>email</string>
                 </property>
@@ -147,6 +183,12 @@
               </item>
               <item>
                <widget class="QLabel" name="label_2">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>60</height>
+                 </size>
+                </property>
                 <property name="text">
                  <string>phone</string>
                 </property>
@@ -154,6 +196,12 @@
               </item>
               <item>
                <widget class="QLabel" name="label_7">
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>30</height>
+                 </size>
+                </property>
                 <property name="text">
                  <string>password</string>
                 </property>
@@ -167,10 +215,23 @@
                </widget>
               </item>
              </layout>
+             <zorder>label_6</zorder>
+             <zorder>label</zorder>
+             <zorder>label_5</zorder>
+             <zorder>label_2</zorder>
+             <zorder>label_7</zorder>
+             <zorder>label_3</zorder>
+             <zorder>label_4</zorder>
             </widget>
            </item>
            <item>
             <widget class="QFrame" name="frame">
+             <property name="maximumSize">
+              <size>
+               <width>400</width>
+               <height>16777215</height>
+              </size>
+             </property>
              <property name="frameShape">
               <enum>QFrame::Shape::StyledPanel</enum>
              </property>
@@ -198,10 +259,16 @@
               </item>
               <item>
                <widget class="QFrame" name="frame_6">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>0</height>
+                 </size>
+                </property>
                 <property name="maximumSize">
                  <size>
                   <width>16777215</width>
-                  <height>100</height>
+                  <height>150</height>
                  </size>
                 </property>
                 <property name="frameShape">
@@ -222,8 +289,8 @@
                   <widget class="QLabel" name="l_kontophoto">
                    <property name="maximumSize">
                     <size>
-                     <width>200</width>
-                     <height>200</height>
+                     <width>120</width>
+                     <height>1666666</height>
                     </size>
                    </property>
                    <property name="text">
@@ -309,14 +376,13 @@
                     </size>
                    </property>
                    <property name="text">
-                    <string>TextLabel</string>
+                    <string/>
                    </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="0">
-                  <widget class="QLabel" name="label_10">
-                   <property name="text">
-                    <string>Dodaj mieszkanie</string>
+                   <property name="pixmap">
+                    <pixmap>../plusik.png</pixmap>
+                   </property>
+                   <property name="scaledContents">
+                    <bool>true</bool>
                    </property>
                   </widget>
                  </item>
@@ -348,13 +414,6 @@
                    </property>
                    <property name="text">
                     <string>TextLabel</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
-                  <widget class="QLabel" name="label_11">
-                   <property name="text">
-                    <string>Lista mieszkań</string>
                    </property>
                   </widget>
                  </item>
@@ -759,8 +818,8 @@
                      <widget class="QLabel" name="l_appartment_photo1">
                       <property name="maximumSize">
                        <size>
-                        <width>150</width>
-                        <height>100</height>
+                        <width>180</width>
+                        <height>150</height>
                        </size>
                       </property>
                       <property name="text">
@@ -784,8 +843,8 @@
                      <widget class="QLabel" name="l_appartment_photo2">
                       <property name="maximumSize">
                        <size>
-                        <width>150</width>
-                        <height>100</height>
+                        <width>180</width>
+                        <height>150</height>
                        </size>
                       </property>
                       <property name="text">

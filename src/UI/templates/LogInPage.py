@@ -298,11 +298,6 @@ class Ui_Form(object):
 
         self.verticalLayout_2.addWidget(self.frame_8)
 
-        self.label_4 = QLabel(self.frame_4)
-        self.label_4.setObjectName(u"label_4")
-
-        self.verticalLayout_2.addWidget(self.label_4)
-
 
         self.verticalLayout.addWidget(self.frame_4)
 
@@ -334,7 +329,7 @@ class Ui_Form(object):
 
         self.retranslateUi(Form)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(Form)
@@ -357,6 +352,5 @@ class Ui_Form(object):
         self.label_3.setText(QCoreApplication.translate("Form", u"has\u0142o", None))
         self.bt_login.setText(QCoreApplication.translate("Form", u"Zaloguj si\u0119", None))
         self.bt_rejestr.setText(QCoreApplication.translate("Form", u"Rejestracja", None))
-        self.label_4.setText(QCoreApplication.translate("Form", u"ajk co\u015b p\u00f3jdzie nie tak", None))
     # retranslateUi
 
