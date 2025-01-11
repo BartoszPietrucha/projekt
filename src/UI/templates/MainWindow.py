@@ -44,6 +44,9 @@ class Ui_MainWindow(object):
         self.bt_wyloguj = QPushButton(self.frame_3)
         self.bt_wyloguj.setObjectName(u"bt_wyloguj")
         self.bt_wyloguj.setGeometry(QRect(20, 90, 93, 29))
+        self.bt_wyloguj_2 = QPushButton(self.frame_3)
+        self.bt_wyloguj_2.setObjectName(u"bt_wyloguj_2")
+        self.bt_wyloguj_2.setGeometry(QRect(20, 130, 93, 29))
 
         self.horizontalLayout.addWidget(self.frame_3)
 
@@ -529,6 +532,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
         self.l_appartment_photo1 = QLabel(self.frame_26)
         self.l_appartment_photo1.setObjectName(u"l_appartment_photo1")
+        self.l_appartment_photo1.setMaximumSize(QSize(150, 100))
 
         self.horizontalLayout_13.addWidget(self.l_appartment_photo1)
 
@@ -543,18 +547,19 @@ class Ui_MainWindow(object):
         self.horizontalLayout_16.setObjectName(u"horizontalLayout_16")
         self.l_appartment_photo2 = QLabel(self.frame_28)
         self.l_appartment_photo2.setObjectName(u"l_appartment_photo2")
+        self.l_appartment_photo2.setMaximumSize(QSize(150, 100))
 
         self.horizontalLayout_16.addWidget(self.l_appartment_photo2)
 
 
         self.horizontalLayout_12.addWidget(self.frame_28)
 
-        self.frame_27 = QFrame(self.frame_23)
-        self.frame_27.setObjectName(u"frame_27")
-        self.frame_27.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_27.setFrameShadow(QFrame.Shadow.Raised)
+        self.l_appartment_photo3 = QFrame(self.frame_23)
+        self.l_appartment_photo3.setObjectName(u"l_appartment_photo3")
+        self.l_appartment_photo3.setFrameShape(QFrame.Shape.StyledPanel)
+        self.l_appartment_photo3.setFrameShadow(QFrame.Shadow.Raised)
 
-        self.horizontalLayout_12.addWidget(self.frame_27)
+        self.horizontalLayout_12.addWidget(self.l_appartment_photo3)
 
 
         self.verticalLayout_14.addWidget(self.frame_23)
@@ -565,19 +570,19 @@ class Ui_MainWindow(object):
         self.frame_24.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_14 = QHBoxLayout(self.frame_24)
         self.horizontalLayout_14.setObjectName(u"horizontalLayout_14")
-        self.frame_31 = QFrame(self.frame_24)
-        self.frame_31.setObjectName(u"frame_31")
-        self.frame_31.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_31.setFrameShadow(QFrame.Shadow.Raised)
+        self.l_appartment_photo4 = QFrame(self.frame_24)
+        self.l_appartment_photo4.setObjectName(u"l_appartment_photo4")
+        self.l_appartment_photo4.setFrameShape(QFrame.Shape.StyledPanel)
+        self.l_appartment_photo4.setFrameShadow(QFrame.Shadow.Raised)
 
-        self.horizontalLayout_14.addWidget(self.frame_31)
+        self.horizontalLayout_14.addWidget(self.l_appartment_photo4)
 
-        self.frame_30 = QFrame(self.frame_24)
-        self.frame_30.setObjectName(u"frame_30")
-        self.frame_30.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_30.setFrameShadow(QFrame.Shadow.Raised)
+        self.l_appartment_photo5 = QFrame(self.frame_24)
+        self.l_appartment_photo5.setObjectName(u"l_appartment_photo5")
+        self.l_appartment_photo5.setFrameShape(QFrame.Shape.StyledPanel)
+        self.l_appartment_photo5.setFrameShadow(QFrame.Shadow.Raised)
 
-        self.horizontalLayout_14.addWidget(self.frame_30)
+        self.horizontalLayout_14.addWidget(self.l_appartment_photo5)
 
         self.frame_29 = QFrame(self.frame_24)
         self.frame_29.setObjectName(u"frame_29")
@@ -869,6 +874,7 @@ class Ui_MainWindow(object):
         self.bt_mieszkania.setText(QCoreApplication.translate("MainWindow", u"mieszkania", None))
         self.bt_konto.setText(QCoreApplication.translate("MainWindow", u"konto", None))
         self.bt_wyloguj.setText(QCoreApplication.translate("MainWindow", u"wyloguj si\u0119", None))
+        self.bt_wyloguj_2.setText(QCoreApplication.translate("MainWindow", u"ustawienia", None))
         self.label.setText(QCoreApplication.translate("MainWindow", u"username", None))
         self.label_5.setText(QCoreApplication.translate("MainWindow", u"firstname", None))
         self.label_6.setText(QCoreApplication.translate("MainWindow", u"surname", None))

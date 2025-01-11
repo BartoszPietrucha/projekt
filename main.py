@@ -4,7 +4,7 @@ from src.UI.templates.MainWindow import Ui_MainWindow
 from PySide6.QtGui import QPixmap, QImage, QCursor, QMouseEvent
 from PySide6.QtCore import QTimer, QByteArray, Qt
 import os
-from src.db.db_init.initialize_db import UserData, Session, Users, Apartments, Info, Photos
+from src.db.db_init.initialize_db import UserData, Session, Users, Apartments, Info, Photos, func
 import base64
 
 
@@ -55,6 +55,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.bt_left.clicked.connect(self.previous_image)
         
         self.bt_mieszkania.clicked.connect(self.show_page2)
+        self.bt_mieszkania.clicked.connect(self.show_photos)
 
         self.bt_konto.clicked.connect(self.show_page)
         self.bt_edytuj.clicked.connect(self.save_changes)
@@ -208,7 +209,94 @@ class MainWindow(QMainWindow, Ui_MainWindow):
                     print(f"cos poszlo nei tak przy dodawaniu zdjecia: {e}")
 
 
-        
+     #######################################################################################################################################
+     # obsługa listy mieszkań
+     # #####################################################################################################################################
+
+
+    def get_first_photos(self, userr_id):
+
+        apartments_with_first_photo = (
+            self.db_session.query(
+                Apartments,
+                Photos.photo_b64
+            )
+            .join(Photos, Apartments.apartment_id == Photos.apartment_id)
+            .filter(Apartments.user_id == userr_id)
+            .filter(
+               Photos.photo_id == self.db_session.query(func.min(Photos.photo_id))
+                .filter(Photos.apartment_id == Apartments.apartment_id)
+                .correlate(Apartments)  # Powiązanie z Apartments
+                .scalar_subquery()
+            )
+            .all()
+        )
+
+        return apartments_with_first_photo
+
+    def load_apartment_photos(self, first_photos):
+    
+        labels = [
+            self.l_appartment_photo1,
+            self.l_appartment_photo2,
+            self.l_appartment_photo3,
+            self.l_appartment_photo4,
+            self.l_appartment_photo5,
+        ]  # Dodaj więcej, jeśli potrzebujesz
+
+        for i, (apartment, photo_b64) in enumerate(first_photos):
+            if i >= len(labels):  # Jeśli brak miejsca na więcej zdjęć, wyjdź z pętli
+                print("Za mało QLabel do wyświetlenia wszystkich zdjęć mieszkań.")
+                break
+
+            label = labels[i]  # Obecna etykieta
+
+            if photo_b64:  # Jeśli zdjęcie istnieje
+                try:
+                    # Dekodowanie base64 na binarne dane obrazu
+                    image_data = base64.b64decode(photo_b64)
+                    pixmap = QPixmap()
+                    pixmap.loadFromData(image_data)  # Tworzenie pixmapy z danych
+                    label.setPixmap(pixmap)
+                    label.setScaledContents(True)  # Skalowanie zawartości w QLabel
+                except Exception as e:
+                    print(f"Błąd podczas ładowania zdjęcia dla mieszkania ID {apartment.apartment_id}: {e}")
+            else:
+                print(f"Mieszkanie ID {apartment.apartment_id} nie ma zdjęcia. Ustawiam domyślny obrazek.")
+                label.setText("Brak zdjęcia")  # Możesz ustawić domyślny obrazek lub tekst
+
+            
+
+    # def on_photo_clicked(self, label):
+    #     Obsługa kliknięcia na QLabel, powiększenie zdjęcia.
+    #     if label.pixmap():  # Sprawdzenie, czy QLabel ma zdjęcie
+    #         pixmap = label.pixmap()
+    #         enlarged_pixmap = pixmap.scaled(
+    #             label.width() * 1.5,
+    #             label.height() * 1.5,
+    #             Qt.AspectRatioMode.KeepAspectRatio,
+    #             Qt.TransformationMode.SmoothTransformation,
+    #         )
+    #         # Tymczasowo ustaw powiększone zdjęcie
+    #         label.setPixmap(enlarged_pixmap)
+    #         print("Powiększono zdjęcie!")
+    #     else:
+    #         print("Brak zdjęcia w QLabel.")
+
+
+
+    def show_photos(self):
+        first_photos = self.get_first_photos(self.userr_id)
+        self.load_apartment_photos(first_photos)
+
+
+
+
+
+
+
+
+
 
     def on_l_plus_clicked(self, event: QMouseEvent):
         if event.button() == Qt.MouseButton.LeftButton:

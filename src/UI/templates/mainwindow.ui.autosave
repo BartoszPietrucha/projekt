@@ -104,7 +104,7 @@
           <string notr="true">background-color: #92a8d1;</string>
          </property>
          <property name="currentIndex">
-          <number>4</number>
+          <number>1</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QHBoxLayout" name="horizontalLayout_4">
