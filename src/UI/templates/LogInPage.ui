@@ -45,6 +45,15 @@ background-repeat: no-repeat;
            <height>500</height>
           </size>
          </property>
+         <property name="styleSheet">
+          <string notr="true">#frame_13{
+background-image:url(&quot;C:/Programy/python/projekt/projekt/src/UI/apartment.jpg&quot;);
+background-position: top center;
+width: 100%;
+height: 100%;
+background-repeat: no-repeat;
+}</string>
+         </property>
          <property name="frameShape">
           <enum>QFrame::Shape::StyledPanel</enum>
          </property>
@@ -467,6 +476,16 @@ background-repeat: no-repeat;
                   <string>Rejestracja</string>
                  </property>
                 </widget>
+               </widget>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_18">
+                <property name="frameShape">
+                 <enum>QFrame::Shape::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Shadow::Raised</enum>
+                </property>
                </widget>
               </item>
              </layout>

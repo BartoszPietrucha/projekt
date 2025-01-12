@@ -44,6 +44,13 @@ class Ui_Form(object):
         self.frame_13.setObjectName(u"frame_13")
         self.frame_13.setMinimumSize(QSize(0, 0))
         self.frame_13.setMaximumSize(QSize(16777215, 500))
+        self.frame_13.setStyleSheet(u"#frame_13{\n"
+"background-image:url(\"C:/Programy/python/projekt/projekt/src/UI/apartment.jpg\");\n"
+"background-position: top center;\n"
+"width: 100%;\n"
+"height: 100%;\n"
+"background-repeat: no-repeat;\n"
+"}")
         self.frame_13.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_13.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_7 = QHBoxLayout(self.frame_13)
@@ -297,6 +304,13 @@ class Ui_Form(object):
         self.bt_rejestr.setGeometry(QRect(120, 10, 93, 29))
 
         self.verticalLayout_2.addWidget(self.frame_8)
+
+        self.frame_18 = QFrame(self.frame_4)
+        self.frame_18.setObjectName(u"frame_18")
+        self.frame_18.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_18.setFrameShadow(QFrame.Shadow.Raised)
+
+        self.verticalLayout_2.addWidget(self.frame_18)
 
 
         self.verticalLayout.addWidget(self.frame_4)

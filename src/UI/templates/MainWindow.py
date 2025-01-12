@@ -15,16 +15,16 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QGridLayout,
-    QHBoxLayout, QLabel, QLineEdit, QMainWindow,
-    QMenuBar, QPushButton, QSizePolicy, QStackedWidget,
-    QStatusBar, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QApplication, QComboBox, QFrame, QHBoxLayout,
+    QLabel, QLineEdit, QMainWindow, QMenuBar,
+    QPushButton, QSizePolicy, QStackedWidget, QStatusBar,
+    QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(804, 637)
+        MainWindow.resize(891, 718)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
         self.horizontalLayout = QHBoxLayout(self.centralwidget)
@@ -52,18 +52,38 @@ class Ui_MainWindow(object):
 
         self.frame_2 = QFrame(self.centralwidget)
         self.frame_2.setObjectName(u"frame_2")
+        self.frame_2.setStyleSheet(u"")
         self.frame_2.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_2.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_2 = QHBoxLayout(self.frame_2)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.stackedWidget = QStackedWidget(self.frame_2)
         self.stackedWidget.setObjectName(u"stackedWidget")
-        self.stackedWidget.setStyleSheet(u"background-color: #92a8d1;")
+        self.stackedWidget.setStyleSheet(u"#stackedWidget1{\n"
+"background-image:url(\"C:/Programy/python/projekt/projekt/src/UI/apartment.jpg\");\n"
+"background-position: top center;\n"
+"width: 100%;\n"
+"height: 100%;\n"
+"background-repeat: no-repeat;\n"
+"}")
         self.page = QWidget()
         self.page.setObjectName(u"page")
         self.horizontalLayout_4 = QHBoxLayout(self.page)
         self.horizontalLayout_4.setObjectName(u"horizontalLayout_4")
-        self.frame_4 = QFrame(self.page)
+        self.frame_27 = QFrame(self.page)
+        self.frame_27.setObjectName(u"frame_27")
+        self.frame_27.setStyleSheet(u"#frame_27{\n"
+"background-image:url(\"C:/Programy/python/projekt/projekt/src/UI/apartment.jpg\");\n"
+"background-position: top center;\n"
+"width: 100%;\n"
+"height: 100%;\n"
+"background-repeat: no-repeat;\n"
+"}")
+        self.frame_27.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_27.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_17 = QHBoxLayout(self.frame_27)
+        self.horizontalLayout_17.setObjectName(u"horizontalLayout_17")
+        self.frame_4 = QFrame(self.frame_27)
         self.frame_4.setObjectName(u"frame_4")
         self.frame_4.setMinimumSize(QSize(100, 0))
         self.frame_4.setFrameShape(QFrame.Shape.StyledPanel)
@@ -120,9 +140,9 @@ class Ui_MainWindow(object):
         self.label_3.raise_()
         self.label_4.raise_()
 
-        self.horizontalLayout_4.addWidget(self.frame_4)
+        self.horizontalLayout_17.addWidget(self.frame_4)
 
-        self.frame = QFrame(self.page)
+        self.frame = QFrame(self.frame_27)
         self.frame.setObjectName(u"frame")
         self.frame.setMaximumSize(QSize(400, 16777215))
         self.frame.setFrameShape(QFrame.Shape.StyledPanel)
@@ -182,9 +202,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_2.addWidget(self.frame_6)
 
 
-        self.horizontalLayout_4.addWidget(self.frame)
+        self.horizontalLayout_17.addWidget(self.frame)
 
-        self.frame_5 = QFrame(self.page)
+        self.frame_5 = QFrame(self.frame_27)
         self.frame_5.setObjectName(u"frame_5")
         self.frame_5.setMinimumSize(QSize(100, 0))
         self.frame_5.setMaximumSize(QSize(100, 16777215))
@@ -194,7 +214,10 @@ class Ui_MainWindow(object):
         self.bt_edytuj.setObjectName(u"bt_edytuj")
         self.bt_edytuj.setGeometry(QRect(10, 250, 93, 29))
 
-        self.horizontalLayout_4.addWidget(self.frame_5)
+        self.horizontalLayout_17.addWidget(self.frame_5)
+
+
+        self.horizontalLayout_4.addWidget(self.frame_27)
 
         self.stackedWidget.addWidget(self.page)
         self.page_2 = QWidget()
@@ -203,41 +226,56 @@ class Ui_MainWindow(object):
         self.horizontalLayout_5.setObjectName(u"horizontalLayout_5")
         self.frame_7 = QFrame(self.page_2)
         self.frame_7.setObjectName(u"frame_7")
+        self.frame_7.setStyleSheet(u"#frame_7{\n"
+"background-image:url(\"C:/Programy/python/projekt/projekt/src/UI/apartment.jpg\");\n"
+"background-position: top center;\n"
+"width: 100%;\n"
+"height: 100%;\n"
+"background-repeat: no-repeat;\n"
+"}")
         self.frame_7.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_7.setFrameShadow(QFrame.Shadow.Raised)
         self.horizontalLayout_7 = QHBoxLayout(self.frame_7)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.frame_8 = QFrame(self.frame_7)
         self.frame_8.setObjectName(u"frame_8")
-        self.frame_8.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_8.setFrameShadow(QFrame.Shadow.Raised)
-        self.gridLayout = QGridLayout(self.frame_8)
-        self.gridLayout.setObjectName(u"gridLayout")
+        self.frame_8.setMaximumSize(QSize(325, 16777215))
+        self.frame_8.setFrameShape(QFrame.Shape.NoFrame)
+        self.frame_8.setFrameShadow(QFrame.Shadow.Plain)
+        self.label_10 = QLabel(self.frame_8)
+        self.label_10.setObjectName(u"label_10")
+        self.label_10.setGeometry(QRect(90, 140, 118, 20))
+        self.label_10.setMaximumSize(QSize(16777215, 150))
+        self.label_10.setFrameShape(QFrame.Shape.NoFrame)
+        self.label_10.setFrameShadow(QFrame.Shadow.Plain)
+        self.label_10.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.l_plus = QLabel(self.frame_8)
         self.l_plus.setObjectName(u"l_plus")
-        self.l_plus.setMinimumSize(QSize(250, 0))
-        self.l_plus.setMaximumSize(QSize(16777215, 250))
-        self.l_plus.setPixmap(QPixmap(u"../plusik.png"))
-        self.l_plus.setScaledContents(True)
-
-        self.gridLayout.addWidget(self.l_plus, 0, 0, 1, 1)
-
+        self.l_plus.setGeometry(QRect(30, 170, 250, 250))
+        self.l_plus.setMinimumSize(QSize(250, 250))
+        self.l_plus.setMaximumSize(QSize(250, 250))
+        self.l_plus.setStyleSheet(u"#l_plus{\n"
+"background: transparent;\n"
+"}")
+        self.l_plus.setScaledContents(False)
 
         self.horizontalLayout_7.addWidget(self.frame_8)
 
         self.frame_9 = QFrame(self.frame_7)
         self.frame_9.setObjectName(u"frame_9")
-        self.frame_9.setFrameShape(QFrame.Shape.StyledPanel)
-        self.frame_9.setFrameShadow(QFrame.Shadow.Raised)
-        self.verticalLayout_3 = QVBoxLayout(self.frame_9)
-        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
+        self.frame_9.setMaximumSize(QSize(325, 16777215))
+        self.frame_9.setFrameShape(QFrame.Shape.NoFrame)
+        self.frame_9.setFrameShadow(QFrame.Shadow.Plain)
         self.l_plik = QLabel(self.frame_9)
         self.l_plik.setObjectName(u"l_plik")
-        self.l_plik.setMinimumSize(QSize(250, 0))
-        self.l_plik.setMaximumSize(QSize(16777215, 250))
-
-        self.verticalLayout_3.addWidget(self.l_plik)
-
+        self.l_plik.setGeometry(QRect(30, 170, 250, 250))
+        self.l_plik.setMinimumSize(QSize(250, 250))
+        self.l_plik.setMaximumSize(QSize(250, 250))
+        self.label_11 = QLabel(self.frame_9)
+        self.label_11.setObjectName(u"label_11")
+        self.label_11.setGeometry(QRect(100, 140, 95, 20))
+        self.label_11.setMaximumSize(QSize(16777215, 150))
+        self.label_11.setAlignment(Qt.AlignmentFlag.AlignCenter)
 
         self.horizontalLayout_7.addWidget(self.frame_9)
 
@@ -249,24 +287,40 @@ class Ui_MainWindow(object):
         self.page_3.setObjectName(u"page_3")
         self.horizontalLayout_3 = QHBoxLayout(self.page_3)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
-        self.bt_left = QPushButton(self.page_3)
+        self.frame_30 = QFrame(self.page_3)
+        self.frame_30.setObjectName(u"frame_30")
+        self.frame_30.setStyleSheet(u"#frame_30{\n"
+"background-image:url(\"C:/Programy/python/projekt/projekt/src/UI/apartment.jpg\");\n"
+"background-position: top center;\n"
+"width: 100%;\n"
+"height: 100%;\n"
+"background-repeat: no-repeat;\n"
+"}")
+        self.frame_30.setFrameShape(QFrame.Shape.StyledPanel)
+        self.frame_30.setFrameShadow(QFrame.Shadow.Raised)
+        self.horizontalLayout_18 = QHBoxLayout(self.frame_30)
+        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
+        self.bt_left = QPushButton(self.frame_30)
         self.bt_left.setObjectName(u"bt_left")
         self.bt_left.setMinimumSize(QSize(0, 450))
         self.bt_left.setMaximumSize(QSize(25, 16777215))
 
-        self.horizontalLayout_3.addWidget(self.bt_left)
+        self.horizontalLayout_18.addWidget(self.bt_left)
 
-        self.l_photos = QLabel(self.page_3)
+        self.l_photos = QLabel(self.frame_30)
         self.l_photos.setObjectName(u"l_photos")
         self.l_photos.setMaximumSize(QSize(500, 500))
 
-        self.horizontalLayout_3.addWidget(self.l_photos)
+        self.horizontalLayout_18.addWidget(self.l_photos)
 
-        self.bt_right = QPushButton(self.page_3)
+        self.bt_right = QPushButton(self.frame_30)
         self.bt_right.setObjectName(u"bt_right")
         self.bt_right.setMaximumSize(QSize(25, 450))
 
-        self.horizontalLayout_3.addWidget(self.bt_right)
+        self.horizontalLayout_18.addWidget(self.bt_right)
+
+
+        self.horizontalLayout_3.addWidget(self.frame_30)
 
         self.stackedWidget.addWidget(self.page_3)
         self.page_4 = QWidget()
@@ -275,6 +329,13 @@ class Ui_MainWindow(object):
         self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
         self.frame_10 = QFrame(self.page_4)
         self.frame_10.setObjectName(u"frame_10")
+        self.frame_10.setStyleSheet(u"#frame_10{\n"
+"background-image:url(\"C:/Programy/python/projekt/projekt/src/UI/apartment.jpg\");\n"
+"background-position: top center;\n"
+"width: 100%;\n"
+"height: 100%;\n"
+"background-repeat: no-repeat;\n"
+"}")
         self.frame_10.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_10.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalLayout_4 = QVBoxLayout(self.frame_10)
@@ -522,6 +583,13 @@ class Ui_MainWindow(object):
         self.horizontalLayout_11.setObjectName(u"horizontalLayout_11")
         self.frame_22 = QFrame(self.page_5)
         self.frame_22.setObjectName(u"frame_22")
+        self.frame_22.setStyleSheet(u"#frame_22{\n"
+"background-image:url(\"C:/Programy/python/projekt/projekt/src/UI/apartment.jpg\");\n"
+"background-position: top center;\n"
+"width: 100%;\n"
+"height: 100%;\n"
+"background-repeat: no-repeat;\n"
+"}")
         self.frame_22.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_22.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalLayout_14 = QVBoxLayout(self.frame_22)
@@ -782,6 +850,13 @@ class Ui_MainWindow(object):
         self.horizontalLayout_33.setObjectName(u"horizontalLayout_33")
         self.frame_71 = QFrame(self.page_7)
         self.frame_71.setObjectName(u"frame_71")
+        self.frame_71.setStyleSheet(u"#frame_71{\n"
+"background-image:url(\"C:/Programy/python/projekt/projekt/src/UI/apartment.jpg\");\n"
+"background-position: top center;\n"
+"width: 100%;\n"
+"height: 100%;\n"
+"background-repeat: no-repeat;\n"
+"}")
         self.frame_71.setFrameShape(QFrame.Shape.StyledPanel)
         self.frame_71.setFrameShadow(QFrame.Shadow.Raised)
         self.verticalLayout_32 = QVBoxLayout(self.frame_71)
@@ -809,7 +884,7 @@ class Ui_MainWindow(object):
         self.l_photos_add.setObjectName(u"l_photos_add")
         self.l_photos_add.setMaximumSize(QSize(500, 400))
         self.l_photos_add.setStyleSheet(u"")
-        self.l_photos_add.setPixmap(QPixmap(u"C:/Programy/python/projekt/projekt/src/UI/domek.jpg"))
+        self.l_photos_add.setPixmap(QPixmap(u"../domek.jpg"))
         self.l_photos_add.setScaledContents(True)
 
         self.horizontalLayout_35.addWidget(self.l_photos_add)
@@ -864,7 +939,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 804, 26))
+        self.menubar.setGeometry(QRect(0, 0, 891, 26))
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QStatusBar(MainWindow)
         self.statusbar.setObjectName(u"statusbar")
@@ -872,7 +947,7 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
 
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(1)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -894,8 +969,10 @@ class Ui_MainWindow(object):
         self.bt_kontouploadphoto.setText(QCoreApplication.translate("MainWindow", u"Wybierz zdj\u0119cie", None))
         self.l_kontophoto.setText(QCoreApplication.translate("MainWindow", u"Zdj\u0119cie", None))
         self.bt_edytuj.setText(QCoreApplication.translate("MainWindow", u"Edytuj", None))
+        self.label_10.setText(QCoreApplication.translate("MainWindow", u"Dodaj mieszkanie", None))
         self.l_plus.setText("")
         self.l_plik.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.label_11.setText(QCoreApplication.translate("MainWindow", u"Lista mieszka\u0144", None))
         self.bt_left.setText(QCoreApplication.translate("MainWindow", u"<", None))
         self.l_photos.setText(QCoreApplication.translate("MainWindow", u"                                                        zdjecia", None))
         self.bt_right.setText(QCoreApplication.translate("MainWindow", u">", None))

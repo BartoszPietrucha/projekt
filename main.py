@@ -346,6 +346,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             pixmap = QPixmap(image)
             self.l_plus.setPixmap(pixmap)
             self.l_plus.setScaledContents(True)
+            self.l_plus.setAutoFillBackground(False)
+            
 
         path_plik = "C:/Programy/python/projekt/projekt/src/UI/folder.jpg"
         if os.path.exists(path_plik):
