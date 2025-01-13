@@ -92,7 +92,121 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
 
 
-    
+    def upload_photos(self):
+       file_paths, _ = QFileDialog.getOpenFileNames(self, "Wybierz zdjęcia", "", "Images (*.png *.jpg *.jpeg *.bmp)")
+        
+       if file_paths:
+            
+            normalized_paths = [os.path.normpath(path) for path in file_paths]
+        
+            # Dodanie nowych zdjęć do listy
+            self.image_paths.extend(normalized_paths)
+            self.show_image2(self.image_paths)
+
+            print(self.image_paths)
+
+    def show_image2(self, image_paths):
+        if image_paths:
+
+            image_path = image_paths[self.current_image_index2]
+            
+            print(image_path)
+            if os.path.exists(image_path):
+                image = QImage(image_path)
+                pixmap = QPixmap(image)
+                self.l_photos_add.setPixmap(pixmap)
+                self.l_photos_add.setScaledContents(True)
+            else:
+                print(f"Plik {image_path} nie istnieje")
+
+    def next_image2(self):
+        if len(self.image_paths) == 0:
+            print("Brak zdjęć do wyświetlenia!")
+            return
+        self.current_image_index2 = (self.current_image_index2 + 1) % len(self.image_paths)
+        self.show_image2(self.image_paths)
+
+    def previous_image2(self):
+        if len(self.image_paths) == 0:
+            print("Brak zdjęć do wyświetlenia!")
+            return
+        self.current_image_index2 = (self.current_image_index2 - 1) % len(self.image_paths)
+        self.show_image2(self.image_paths)
+
+    def dodaj_mieszkanie(self):
+        if not all([self.le_miasto, self.le_ulica, self.le_adres_pocz, self.le_numer_budy, self.le_numer_lok, self.le_metraz, self.le_ilosc_pokoi
+                    , self.le_wlasciciel, self.le_stan, self.cb_osoba_wc, self.le_cena]):
+            print("Wszystkie pola muszą być wypełnione dotyczące mieszkania!")
+            return
+
+        try:
+            new_apartment = Apartments(user_id = self.userr_id)
+
+        
+            new_info = Info(
+                apartment=new_apartment,  # Przypisanie mieszkania
+                miasto=self.le_miasto.text(),
+                ulica=self.le_ulica.text(),
+                adres_pocztowy=self.le_adres_pocz.text(),
+                numer_budynku=int(self.le_numer_budy.text()),
+                numer_lokalu=int(self.le_numer_lok.text()) if self.le_numer_lok.text() else None,
+                metraz=int(self.le_metraz.text()),
+                pokoje=int(self.le_ilosc_pokoi.text()),
+                wlasciciel=self.le_wlasciciel.text(),
+                stan=self.le_stan.text() if self.le_stan.text() else None,
+                wc_osobno= True if self.cb_osoba_wc.currentText() == "tak" else False,
+                cena_wynajmu=int(self.le_cena.text())
+        )
+            self.db_session.add(new_apartment)
+            self.db_session.add(new_info)
+
+            # Zapisanie zmian w bazie danych
+            self.db_session.commit()
+            print("Mieszkanie zostało pomyślnie dodane do bazy danych.")
+
+        except Exception as e:
+            # Obsługa błędów i wycofanie transakcji
+            self.db_session.rollback()
+            print(f"Wystąpił błąd podczas dodawania mieszkania: {e}")
+        
+        if len(self.image_paths) == 0:
+            print("zostanie dodany defaultowy obrazek")
+            self.photo_b64 = None
+
+            try:
+                new_photo = Photos(
+                    apartment = new_apartment,
+                    photo_b64 = self.photo_b64
+                )
+                self.db_session.add(new_photo)
+
+                self.db_session.commit()
+                print("zdjecie zostalo dodane pomyslnie")
+
+            except Exception as e:
+                self.db_session.rollback()
+                print(f"nie zostalo dodane zdjecie: {e}")
+
+        else:
+            for i in self.image_paths:
+                with open(i, "rb") as file:
+                    image_data = file.read()
+                    self.photo_b64 = base64.b64encode(image_data).decode('utf-8')  # Przechowaj w base64
+
+                try:
+                    new_photo = Photos(
+                        apartment = new_apartment,
+                        photo_b64 = self.photo_b64
+                    )
+
+                    self.db_session.add(new_photo)
+
+                    self.db_session.commit()
+                    print("zdjecie zostalo dodane pomyslnie")
+
+                except Exception as e:
+                    self.db_session.rollback()
+                    print(f"cos poszlo nei tak przy dodawaniu zdjecia: {e}")
 
 
      #######################################################################################################################################
