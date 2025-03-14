@@ -26,7 +26,8 @@ The **Apartment Management System** is a Python-based application designed for e
 ## Screenshots  
 - **Database**
 
-![db](https://github.com/user-attachments/assets/c02fa7d5-0de8-4723-843d-4ca044c10ca2)
+![database](https://github.com/user-attachments/assets/62b78507-23da-4072-b606-783513f8d341)
+
 
 
 - **Login Page**  
